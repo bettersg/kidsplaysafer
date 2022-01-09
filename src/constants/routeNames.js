@@ -6,6 +6,8 @@ const ROUTE_NAMES = {
   RESOURCES: "/resources",
   AVATAR_SELECTION: "/avatar-selection",
   MAILER_FORM: "/mailer",
+  INTRODUCTION: "/intro",
+  QUESTIONS: "/questions",
 };
 
 export default ROUTE_NAMES;

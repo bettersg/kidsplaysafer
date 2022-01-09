@@ -11,9 +11,16 @@ import About from "./views/pages/About";
 import Contact from "./views/pages/Contact";
 import AvatarSelection from "./views/pages/AvatarSelection";
 import MailerForm from "./views/pages/MailerForm";
-
-const { HOME, START, ABOUT, CONTACT, AVATAR_SELECTION, MAILER_FORM } =
-  ROUTE_NAMES;
+import Introduction from "./views/pages/Introduction";
+const {
+  HOME,
+  START,
+  ABOUT,
+  CONTACT,
+  AVATAR_SELECTION,
+  MAILER_FORM,
+  INTRODUCTION,
+} = ROUTE_NAMES;
 
 const ROUTES = [
   { path: HOME, element: <Home />, exact: true },
@@ -22,6 +29,7 @@ const ROUTES = [
   { path: CONTACT, element: <Contact />, exact: true },
   { path: AVATAR_SELECTION, element: <AvatarSelection />, exact: true },
   { path: MAILER_FORM, element: <MailerForm />, exact: true },
+  { path: INTRODUCTION, element: <Introduction />, exact: true },
 ];
 
 const App = () => {

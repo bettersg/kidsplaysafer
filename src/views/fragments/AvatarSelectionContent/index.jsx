@@ -38,6 +38,7 @@ const AvatarSelectionContent = () => {
     } else {
       selections.parent = selection;
       navigate("/intro", { state: { usernames, selections } });
+      console.log(usernames)
     }
   };
 
