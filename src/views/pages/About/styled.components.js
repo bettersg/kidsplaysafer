@@ -4,7 +4,7 @@ import { ReactComponent as Top } from "../../assets/icons/logoTop.svg";
 import Background from "../../assets/icons/background.png";
 
 export const AboutWrapper = styled.div`
-  height: 100vh;
+  height: 115vh;
   background-image: url(${Background});
   background-size: cover;
 `;

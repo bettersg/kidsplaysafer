@@ -3,6 +3,9 @@ import {
   About,
   Paragraph,
   ParagraphContainer,
+  StyledDFLlogo,
+  LogoLine,
+  LogoContainer,
 } from "./styled.components";
 
 const AboutDesktopContent = () => {
@@ -30,9 +33,18 @@ const AboutDesktopContent = () => {
           picked the particular option before proceeding to the next question.
         </Paragraph>
         <Paragraph>Their answers might surprise you.</Paragraph>
+
+
+
+
       </ParagraphContainer>
+      <LogoContainer>
+      <LogoLine>In support of</LogoLine >
+        <StyledDFLlogo/>
+        </LogoContainer>
     </AboutContentWrapper>
   );
 };
 
 export default AboutDesktopContent;
+

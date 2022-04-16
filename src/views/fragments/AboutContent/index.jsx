@@ -8,6 +8,8 @@ import {
   About,
   Paragraph,
   ParagraphContainer,
+  StyledDFLlogo,
+  LogoLine,
 } from "./styled.components";
 
 const { HOME } = ROUTE_NAMES;
@@ -45,7 +47,10 @@ const AboutContent = () => {
             picked the particular option before proceeding to the next question.
           </Paragraph>
           <Paragraph>Their answers might surprise you.</Paragraph>
+                  <LogoLine>In support of</LogoLine >
+                  <StyledDFLlogo/>
         </ParagraphContainer>
+
       </AboutContentWrapper>
     </>
   );

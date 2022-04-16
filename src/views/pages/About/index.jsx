@@ -13,15 +13,19 @@ const About = () => {
         <>
           <HomeNavbar />
           <AboutDesktopContent />
+
+
         </>
       )}
       {isSmallScreen && (
         <>
           <StyledTop />
           <AboutContent />
+
         </>
       )}
     </AboutWrapper>
+    
   );
 };
 

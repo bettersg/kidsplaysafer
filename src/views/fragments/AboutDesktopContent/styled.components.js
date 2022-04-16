@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as DFL_LOGO } from "../../assets/icons/DFLogoSmall.svg";
 
 export const AboutContentWrapper = styled.div`
   width: 100%;
@@ -20,9 +21,8 @@ export const About = styled.div`
 `;
 
 export const ParagraphContainer = styled.div`
-  overflow: scroll;
-  height: 300px;
-  width: 900px;
+  height: 500px;
+  max-width: 900px;
   padding: 0 20px;
 `;
 
@@ -34,4 +34,27 @@ export const Paragraph = styled.div`
   &:not(:last-child) {
     margin-bottom: 16px;
   }
+`;
+
+export const LogoLine = styled.div`
+  font-size: 15px;
+  color: #ffffff;
+  margin-top:30px;
+  text-align: center;
+  font-weight:100;
+  }
+`;
+export const LogoContainer = styled.div`
+  position: absolute;
+  bottom: 1%;
+  max-height: 500px;
+  max-width: 900px;
+  padding: 0 20px;
+`;
+export const StyledDFLlogo = styled(DFL_LOGO)`
+  position: relative;
+  transform: scale(0.8);
+  left: 5%;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+    brightness(300%) contrast(100%);
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { ReactComponent as BackButton } from "../../assets/icons/backButton.svg";
-
+import { ReactComponent as DFL_LOGO } from "../../assets/icons/DFLogoSmall.svg";
 export const StyledBackButton = styled(BackButton)`
   position: absolute;
   top: 20px;
@@ -35,6 +35,7 @@ export const ParagraphContainer = styled.div`
   height: 300px;
   width: calc(100% - 50px);
   max-width: 400px;
+  max-height: 300px;
   padding: 0 20px;
 `;
 
@@ -46,4 +47,21 @@ export const Paragraph = styled.div`
   &:not(:last-child) {
     margin-bottom: 16px;
   }
+`;
+
+export const LogoLine = styled.div`
+  font-size: 12px;
+  font-weight: 100;
+  color: #ffffff;
+  margin-top:20px;
+  text-align: center;
+  }
+`;
+export const StyledDFLlogo = styled(DFL_LOGO)`
+  position: relative;
+  bottom: 5%;
+  left: 3%;
+  transform: scale(0.5);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+    brightness(300%) contrast(100%);
 `;
