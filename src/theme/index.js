@@ -3,6 +3,10 @@ import { createTheme } from '@mui/material/styles';
 import BalsamiqSans from '../fonts/BalsamiqSans-Regular.ttf';
 import Audiowide from '../fonts/Audiowide-Regular.ttf';
 
+const palette = {
+  mode: 'dark',
+};
+
 const typography = {
   fontFamily: 'Balsamiq Sans, Arial',
   color: 'white',
@@ -27,6 +31,7 @@ const components = {
       }
     `,
   },
+  // TODO More customization needs to be made for the hover, clicked, active, and disabled states to be consistent
   MuiButton: {
     styleOverrides: {
       root: {
@@ -48,5 +53,5 @@ const components = {
   },
 };
 
-const muiTheme = createTheme({ typography, components });
+const muiTheme = createTheme({ palette, typography, components });
 export default muiTheme;
