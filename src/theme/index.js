@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 import BalsamiqSans from '../fonts/BalsamiqSans-Regular.ttf';
 import Audiowide from '../fonts/Audiowide-Regular.ttf';
@@ -10,6 +10,11 @@ const palette = {
 const typography = {
   fontFamily: 'Balsamiq Sans, Arial',
   color: 'white',
+  h1: { fontFamily: 'Audiowide' },
+  h2: { fontFamily: 'Audiowide' },
+  h3: { fontFamily: 'Audiowide' },
+  h4: { fontFamily: 'Audiowide' },
+  button: { fontFamily: 'Audiowide' },
 };
 
 const components = {
@@ -38,20 +43,29 @@ const components = {
         height: '40px',
         padding: '0px 32px',
         borderRadius: '20px',
-        fontFamily: 'Audiowide',
         fontSize: '16px',
         color: 'white',
       },
       contained: {
         boxShadow: '0px 4px 20px 5px rgba(255, 255, 255, 0.25)',
         background: 'linear-gradient(180deg, #FB4EC2 0%, #FF8DAD 100%)',
+        '&:disabled': {
+          background: 'rgba(255, 255, 255, 0.12)',
+        },
       },
       outlined: {
         border: '2px solid #FFFFFF',
       }
     },
   },
+  MuiPaper: {
+    styleOverrides: {
+      root: {
+        background: 'rgba(39, 2, 69, 0.8)',
+      }
+    }
+  }
 };
 
-const muiTheme = createTheme({ palette, typography, components });
+const muiTheme = responsiveFontSizes(createTheme({ palette, typography, components }));
 export default muiTheme;

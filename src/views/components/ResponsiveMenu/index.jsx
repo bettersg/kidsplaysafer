@@ -48,32 +48,63 @@ export default function ResponsiveMenu() {
         <IconButton onClick={toggleDrawer} size="small" sx={{ ml: 2 }}>
           <MenuIcon sx={{ width: 32, height: 32 }} />
         </IconButton>
-        <Drawer anchor="right" open={open} onClose={toggleDrawer}>
+        <Drawer
+          anchor="right"
+          open={open}
+          onClose={toggleDrawer}>
           <Box sx={{ width: '275px' }} role="presentation" onClick={toggleDrawer}>
             <List>
               <ListItem>
                 <ListItemButton onClick={navigateToHome}>
-                  <ListItemText sx={{ textAlign: 'right' }} primary="Home" />
+                  <ListItemText
+                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    sx={{ textAlign: 'right' }}
+                    primary="Home" />
                 </ListItemButton>
               </ListItem>
-              <ListItem><ListItemButton onClick={navigateToAbout}>
-                <ListItemText sx={{ textAlign: 'right' }} primary="About" />
-              </ListItemButton></ListItem>
-              <ListItem><ListItemButton disabled>
-                <ListItemText sx={{ textAlign: 'right' }} primary="Blog" />
-              </ListItemButton></ListItem>
-              <ListItem><ListItemButton onClick={navigateToResources}>
-                <ListItemText sx={{ textAlign: 'right' }} primary="Resources" />
-              </ListItemButton></ListItem>
-              <ListItem><ListItemButton onClick={navigateToContact}>
-                <ListItemText sx={{ textAlign: 'right' }} primary="Contact" />
-              </ListItemButton></ListItem>
+              <ListItem>
+                <ListItemButton onClick={navigateToAbout}>
+                  <ListItemText
+                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    sx={{ textAlign: 'right' }}
+                    primary="About" />
+                </ListItemButton>
+              </ListItem>
+              <ListItem>
+                <ListItemButton disabled>
+                  <ListItemText
+                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    sx={{ textAlign: 'right' }}
+                    primary="Blog" />
+                </ListItemButton>
+              </ListItem>
+              <ListItem>
+                <ListItemButton onClick={navigateToResources}>
+                  <ListItemText
+                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    sx={{ textAlign: 'right' }}
+                    primary="Resources" />
+                </ListItemButton>
+              </ListItem>
+              <ListItem>
+                <ListItemButton onClick={navigateToContact}>
+                  <ListItemText
+                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    sx={{ textAlign: 'right' }}
+                    primary="Contact" />
+                </ListItemButton>
+              </ListItem>
             </List>
             <Divider />
             <List>
-              <ListItem><ListItemButton disabled>
-                <ListItemText sx={{ textAlign: 'right' }} primary="Login" />
-              </ListItemButton></ListItem>
+              <ListItem>
+                <ListItemButton disabled>
+                  <ListItemText
+                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    sx={{ textAlign: 'right' }}
+                    primary="Login" />
+                </ListItemButton>
+              </ListItem>
             </List>
           </Box>
         </Drawer>

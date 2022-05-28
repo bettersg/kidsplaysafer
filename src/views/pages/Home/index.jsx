@@ -60,7 +60,7 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
-    </Layout >
+    </Layout>
   );
 }
 
