@@ -23,25 +23,14 @@ const STEPS = {
   SHARE_PANEL: 6 + QUESTIONS.length,
 }
 
-const STEP_ORDER = [
-  // STEPS.CHILD_NAME, // Uncomment to allow setting the child's name
-  STEPS.CHILD_AVATAR,
-  // STEPS.PARENT_NAME, // Uncomment to allow setting the parent's name
-  STEPS.PARENT_AVATAR,
-  STEPS.ABOUT_PANEL,
-  STEPS.RULE_PANEL,
-  STEPS.QUESTIONS,
-  STEPS.SHARE_PANEL,
-];
-
 const Start = () => {
-  const [step, setStep] = useState(STEP_ORDER[0]);
+  const [step, setStep] = useState(STEPS.CHILD_NAME);
   const [childName, setChildName] = useState('');
   const [parentName, setParentName] = useState('');
   const [childAvatar, setChildAvatar] = useState('');
   const [parentAvatar, setParentAvatar] = useState('');
-  const previousStep = useCallback(() => setStep((step) => STEP_ORDER[STEP_ORDER.findIndex((e) => e == step) - 1]), []);
-  const nextStep = useCallback(() => setStep((step) => STEP_ORDER[STEP_ORDER.findIndex((e) => e == step) + 1]), []);
+  const previousStep = useCallback(() => setStep((step) => step - 1), []);
+  const nextStep = useCallback(() => setStep((step) => step + 1), []);
   return (
     <Layout>
       <Box
@@ -69,7 +58,7 @@ const Start = () => {
           <AvatarPanel
             step={step}
             avatars={AVATARS.children}
-            onPrevious={STEP_ORDER.findIndex((e) => e == step) == 0 ? null : previousStep}
+            onPrevious={previousStep}
             onSelect={(avatar) => setChildAvatar(avatar) || nextStep()}
           />
         }
