@@ -104,7 +104,7 @@ const Start = () => {
             onNext={nextStep} />
         }
         {step == STEPS.SHARE_PANEL &&
-          <SharePanel onPrevious={previousStep} />
+          <SharePanel />
         }
       </Box>
     </Layout >
