@@ -8,26 +8,30 @@ const RulePanel = ({ onPrevious, onNext }) =>
   <ResponsivePanel small>
     <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h4">How To Play</Typography></Box>
     <Box mb={RESPONSIVE_PANEL_SPACING}>
-      <Typography align="justify">
-        <Box mb={RESPONSIVE_PANEL_SPACING}>
+      <Box mb={RESPONSIVE_PANEL_SPACING}>
+        <Typography align="justify">
           For each question, let your child answer first, then record your response after.
-        </Box>
-        <Box mb={RESPONSIVE_PANEL_SPACING}>
+        </Typography>
+      </Box>
+      <Box mb={RESPONSIVE_PANEL_SPACING}>
+        <Typography align="justify">
           At the end of the quiz, the results will be compared.
-        </Box>
-      </Typography>
+        </Typography>
+      </Box>
     </Box>
     <Box pb={RESPONSIVE_PANEL_SPACING} />
     <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h4">Instructions to Parent</Typography></Box>
     <Box mb={RESPONSIVE_PANEL_SPACING}>
-      <Typography align="justify">
-        <Box mb={RESPONSIVE_PANEL_SPACING}>
+      <Box mb={RESPONSIVE_PANEL_SPACING}>
+        <Typography align="justify">
           Select your response based on the answer you would like your child to provide.
-        </Box>
-        <Box mb={RESPONSIVE_PANEL_SPACING}>
+        </Typography>
+      </Box>
+      <Box mb={RESPONSIVE_PANEL_SPACING}>
+        <Typography align="justify">
           Remember to use this opportunity to connect with your child by having early and frequent discussions about online safety, so that they will instinctively approach you when in doubt.
-        </Box>
-      </Typography>
+        </Typography>
+      </Box>
 
       <Typography align="justify">
 
