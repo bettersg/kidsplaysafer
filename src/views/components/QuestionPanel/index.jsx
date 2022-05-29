@@ -14,7 +14,7 @@ const avatarSize = { xs: '75px', sm: '150px' };
 /*
   This component has internal steps for the child, parent, and review phase
 */
-const QuestionPanel = ({ childAvatar, parentAvatar, question, answers, onPrevious, onNext, currentQuestion, totalQuestions }) => {
+const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, question, answers, onPrevious, onNext, currentQuestion, totalQuestions }) => {
   const [currentTurn, setCurrentTurn] = useState(CHILD);
   const [childAnswer, setChildAnswer] = useState(null);
   const [parentAnswer, setParentAnswer] = useState(null);
@@ -36,6 +36,8 @@ const QuestionPanel = ({ childAvatar, parentAvatar, question, answers, onPreviou
         currentTurn={currentTurn}
         currentQuestion={currentQuestion}
         totalQuestions={totalQuestions}
+        childName={childName}
+        parentName={parentName}
         childAvatar={childAvatar}
         parentAvatar={parentAvatar}
       />
@@ -85,7 +87,7 @@ const QuestionPanel = ({ childAvatar, parentAvatar, question, answers, onPreviou
   );
 }
 
-const Header = ({ currentTurn, currentQuestion, totalQuestions, childAvatar, parentAvatar }) =>
+const Header = ({ currentTurn, currentQuestion, totalQuestions, childName, parentName, childAvatar, parentAvatar }) =>
   <>
     <Typography variant="h4">Question {currentQuestion + 1} / {totalQuestions}</Typography>
     {currentTurn == CHILD &&
@@ -99,7 +101,7 @@ const Header = ({ currentTurn, currentQuestion, totalQuestions, childAvatar, par
       </Box>
     }
     {currentTurn != REVIEW &&
-      <Typography variant="h4">It's your turn</Typography>
+      <Typography variant="h4">{currentTurn == CHILD ? childName : parentName}, it's your turn</Typography>
     }
     <Box mb={RESPONSIVE_PANEL_SPACING} />
   </>;
