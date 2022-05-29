@@ -30,7 +30,7 @@ export default function ResponsiveMenu() {
         display: { xs: 'none', md: 'flex' },
         padding: '27px 50px'
       }}>
-        <Box><Typography sx={{ fontFamily: 'Audiowide' }} variant="h4" color='white'>LOGO</Typography></Box>
+        <Box><Typography variant="h4" color='white'>LOGO</Typography></Box>
         <Box sx={{ flexGrow: 1 }}></Box>
         <Button onClick={navigateToHome}>Home</Button>
         <Button onClick={navigateToAbout}>About</Button>
@@ -41,9 +41,9 @@ export default function ResponsiveMenu() {
       </Box>
       <Box sx={{
         display: { xs: 'flex', md: 'none' },
-        padding: '27px 50px'
+        padding: '16px'
       }}>
-        <Box><Typography sx={{ fontFamily: 'Audiowide' }} variant="h4" color='white'>LOGO</Typography></Box>
+        <Box alignSelf="center"><Typography variant="h4" color='white'>LOGO</Typography></Box>
         <Box sx={{ flexGrow: 1 }}></Box>
         <IconButton onClick={toggleDrawer} size="small" sx={{ ml: 2 }}>
           <MenuIcon sx={{ width: 32, height: 32 }} />
@@ -57,7 +57,7 @@ export default function ResponsiveMenu() {
               <ListItem>
                 <ListItemButton onClick={navigateToHome}>
                   <ListItemText
-                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    primaryTypographyProps={{ variant: 'h4' }}
                     sx={{ textAlign: 'right' }}
                     primary="Home" />
                 </ListItemButton>
@@ -65,7 +65,7 @@ export default function ResponsiveMenu() {
               <ListItem>
                 <ListItemButton onClick={navigateToAbout}>
                   <ListItemText
-                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    primaryTypographyProps={{ variant: 'h4' }}
                     sx={{ textAlign: 'right' }}
                     primary="About" />
                 </ListItemButton>
@@ -73,7 +73,7 @@ export default function ResponsiveMenu() {
               <ListItem>
                 <ListItemButton disabled>
                   <ListItemText
-                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    primaryTypographyProps={{ variant: 'h4' }}
                     sx={{ textAlign: 'right' }}
                     primary="Blog" />
                 </ListItemButton>
@@ -81,7 +81,7 @@ export default function ResponsiveMenu() {
               <ListItem>
                 <ListItemButton onClick={navigateToResources}>
                   <ListItemText
-                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    primaryTypographyProps={{ variant: 'h4' }}
                     sx={{ textAlign: 'right' }}
                     primary="Resources" />
                 </ListItemButton>
@@ -89,7 +89,7 @@ export default function ResponsiveMenu() {
               <ListItem>
                 <ListItemButton onClick={navigateToContact}>
                   <ListItemText
-                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    primaryTypographyProps={{ variant: 'h4' }}
                     sx={{ textAlign: 'right' }}
                     primary="Contact" />
                 </ListItemButton>
@@ -100,7 +100,7 @@ export default function ResponsiveMenu() {
               <ListItem>
                 <ListItemButton disabled>
                   <ListItemText
-                    primaryTypographyProps={{ sx: { fontFamily: 'Audiowide' } }}
+                    primaryTypographyProps={{ variant: 'h4' }}
                     sx={{ textAlign: 'right' }}
                     primary="Login" />
                 </ListItemButton>

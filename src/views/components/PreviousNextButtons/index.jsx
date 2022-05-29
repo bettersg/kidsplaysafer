@@ -9,7 +9,7 @@ const PreviousNextButtons = ({ disabled, onPrevious, onNext }) =>
     {!!onPrevious && <Button
       onClick={onPrevious}
       variant='outlined'
-      sx={{ fontSize: '24px', height: '48px', borderRadius: '30px', margin: '10px' }}
+      sx={{ margin: '10px' }}
     >
       Back
     </Button>
@@ -18,7 +18,7 @@ const PreviousNextButtons = ({ disabled, onPrevious, onNext }) =>
       disabled={disabled}
       onClick={onNext}
       variant='contained'
-      sx={{ fontSize: '24px', height: '48px', borderRadius: '30px', margin: '10px' }}
+      sx={{ margin: '10px' }}
       ml="10px"
     >
       Next

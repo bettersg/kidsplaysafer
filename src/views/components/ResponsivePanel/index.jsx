@@ -6,6 +6,7 @@ export const RESPONSIVE_PANEL_SPACING = { xs: '16px', sm: '32px' };
 const ResponsivePanel = ({ small, children }) => {
   return (
     <Paper
+      elevation={0}
       sx={{
         width: { xs: '100%', md: !!small ? '600px' : '800px' },
         margin: 'auto',

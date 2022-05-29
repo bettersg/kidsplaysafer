@@ -4,7 +4,7 @@ import ROUTE_NAMES from "../../../constants/routeNames";
 
 const { HOME, ABOUT, RESOURCES, CONTACT } = ROUTE_NAMES;
 
-const Home = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <Box sx={{
       display: 'flex',
@@ -18,4 +18,4 @@ const Home = ({ children }) => {
     </Box >);
 }
 
-export default Home;
+export default Layout;

@@ -2,18 +2,16 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
+import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton'
 import PreviousNextButtons from "../PreviousNextButtons";
-
-const spacing = "40px";
 
 const AvatarPanel = ({ step, avatars, onPrevious, onSelect }) =>
   <Box textAlign="center">
     <Grid container spacing={{ xs: 1, sm: 2, md: 3 }} sx={{ maxWidth: '1000px' }}>
       <Grid item xs={12}>
         <Paper sx={{ padding: '24px' }}>
-          <Typography variant="h4" textAlign="center">Select your avatar!</Typography>
+          <Typography variant="h4">Select your avatar!</Typography>
         </Paper>
       </Grid>
       {avatars.map((avatar, i) =>
@@ -28,6 +26,6 @@ const AvatarPanel = ({ step, avatars, onPrevious, onSelect }) =>
     </Grid>
     <Box margin="10px" />
     <PreviousNextButtons onPrevious={onPrevious} />
-  </Box>;
+  </Box >;
 
 export default AvatarPanel;
