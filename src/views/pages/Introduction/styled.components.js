@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import Background from "../../assets/icons/background.png";
 import { ReactComponent as Top } from "../../assets/icons/logoTop.svg";
-import { ReactComponent as DesktopTop } from "../../assets/icons/desktopTop.svg";
 import { ReactComponent as Bottom } from "../../assets/icons/bottom.svg";
 import { ReactComponent as DesktopBottom } from "../../assets/icons/desktopBottom.svg";
 

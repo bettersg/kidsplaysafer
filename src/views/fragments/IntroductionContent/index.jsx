@@ -27,8 +27,7 @@ const IntroductionContent = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const { isSmallScreen } = useScreenSize();
-  const usernames = state.usernames,
-    [childUsername, parentUsername] = usernames;
+  const usernames = state.usernames;
   const selections = state.selections,
     { child: childAvatar, parent: parentAvatar } = selections;
 
