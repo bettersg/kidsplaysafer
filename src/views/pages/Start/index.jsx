@@ -50,7 +50,7 @@ const Start = () => {
           <NamePanel
             title="Hi, little one,"
             name={childName}
-            onChange={(e) => setChildName(e.target.value)}
+            onChange={setChildName}
             onNext={() => !!childName && nextStep()}
           />
         }
@@ -66,7 +66,7 @@ const Start = () => {
           <NamePanel
             title="Dear parent,"
             name={parentName}
-            onChange={(e) => setParentName(e.target.value)}
+            onChange={setParentName}
             onPrevious={previousStep}
             onNext={() => !!parentName && nextStep()}
           />
