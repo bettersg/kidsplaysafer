@@ -46,7 +46,7 @@ const Start = () => {
           backgroundPosition: 'right bottom',
           backgroundSize: '75vh',
         }}>
-        {step == STEPS.CHILD_NAME &&
+        {step === STEPS.CHILD_NAME &&
           <NamePanel
             title="Hi, little one,"
             name={childName}
@@ -54,7 +54,7 @@ const Start = () => {
             onNext={() => !!childName && nextStep()}
           />
         }
-        {step == STEPS.CHILD_AVATAR &&
+        {step === STEPS.CHILD_AVATAR &&
           <AvatarPanel
             step={step}
             avatars={AVATARS.children}
@@ -62,7 +62,7 @@ const Start = () => {
             onSelect={(avatar) => setChildAvatar(avatar) || nextStep()}
           />
         }
-        {step == STEPS.PARENT_NAME &&
+        {step === STEPS.PARENT_NAME &&
           <NamePanel
             title="Dear parent,"
             name={parentName}
@@ -71,7 +71,7 @@ const Start = () => {
             onNext={() => !!parentName && nextStep()}
           />
         }
-        {step == STEPS.PARENT_AVATAR &&
+        {step === STEPS.PARENT_AVATAR &&
           <AvatarPanel
             step={step}
             avatars={AVATARS.parents}
@@ -79,13 +79,13 @@ const Start = () => {
             onSelect={(avatar) => setParentAvatar(avatar) || nextStep()}
           />
         }
-        {step == STEPS.ABOUT_PANEL &&
+        {step === STEPS.ABOUT_PANEL &&
           <AboutPanel
             onPrevious={previousStep}
             onNext={nextStep}
           />
         }
-        {step == STEPS.RULE_PANEL &&
+        {step === STEPS.RULE_PANEL &&
           <RulePanel
             onPrevious={previousStep}
             onNext={nextStep}
@@ -105,7 +105,7 @@ const Start = () => {
             onPrevious={previousStep}
             onNext={nextStep} />
         }
-        {step == STEPS.SHARE_PANEL &&
+        {step === STEPS.SHARE_PANEL &&
           <SharePanel />
         }
       </Box>

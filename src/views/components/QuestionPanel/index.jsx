@@ -21,14 +21,14 @@ const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, quest
   const previousTurn = useCallback(() => {
     if (currentTurn > 0) setCurrentTurn((currentTurn) => currentTurn - 1);
     else onPrevious();
-  }, [currentTurn]);
+  }, [currentTurn, onPrevious]);
   const nextTurn = useCallback(() => {
     if (currentTurn < REVIEW) setCurrentTurn((currentTurn) => currentTurn + 1);
     else onNext();
-  }, [currentTurn]);
+  }, [currentTurn, onNext]);
   const setAnswer = (player, answer) => {
-    if (player == CHILD) setChildAnswer(answer);
-    if (player == PARENT) setParentAnswer(answer);
+    if (player === CHILD) setChildAnswer(answer);
+    if (player === PARENT) setParentAnswer(answer);
   };
   return (
     <Box textAlign="center">
@@ -56,14 +56,14 @@ const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, quest
         <Box mb={RESPONSIVE_PANEL_SPACING}>
           {answers.map((answer, index) => {
             return <Box display="flex" alignItems="center" key={`${question}-answer-${index}`}>
-              {currentTurn == REVIEW && childAnswer == answer &&
-                <img src={childAvatar} style={{ paddingBottom: '4px', width: '40px', height: '40px', objectFit: 'contain' }} />
+              {currentTurn === REVIEW && childAnswer === answer &&
+                <img src={childAvatar} alt="Child Avatar" style={{ paddingBottom: '4px', width: '40px', height: '40px', objectFit: 'contain' }} />
               }
               <Button
                 variant={
-                  currentTurn == CHILD && childAnswer == answer ||
-                    currentTurn == PARENT && parentAnswer == answer ||
-                    currentTurn == REVIEW && (childAnswer == answer || parentAnswer == answer)
+                  (currentTurn === CHILD && childAnswer === answer) ||
+                    (currentTurn === PARENT && parentAnswer === answer) ||
+                    (currentTurn === REVIEW && (childAnswer === answer || parentAnswer === answer))
                     ? 'contained'
                     : 'outlined'}
                 onClick={() => setAnswer(currentTurn, answer)}
@@ -71,14 +71,14 @@ const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, quest
               >
                 {answer}
               </Button>
-              {currentTurn == REVIEW && parentAnswer == answer &&
-                <img src={parentAvatar} style={{ paddingBottom: '4px', width: '40px', height: '40px', objectFit: 'contain' }} />
+              {currentTurn === REVIEW && parentAnswer === answer &&
+                <img src={parentAvatar} alt="Parent Avatar" style={{ paddingBottom: '4px', width: '40px', height: '40px', objectFit: 'contain' }} />
               }
             </Box>;
           })}
         </Box>
         <PreviousNextButtons
-          disabled={currentTurn == CHILD && !childAnswer || currentTurn == PARENT && !parentAnswer}
+          disabled={(currentTurn === CHILD && !childAnswer) || (currentTurn === PARENT && !parentAnswer)}
           onPrevious={previousTurn}
           onNext={nextTurn}
         />
@@ -90,41 +90,41 @@ const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, quest
 const Header = ({ currentTurn, currentQuestion, totalQuestions, childName, parentName, childAvatar, parentAvatar }) =>
   <>
     <Typography variant="h4">Question {currentQuestion + 1} / {totalQuestions}</Typography>
-    {currentTurn == CHILD &&
+    {currentTurn === CHILD &&
       <Box height={avatarSize}>
-        <img src={childAvatar} style={{ height: '100%', objectFit: 'contain' }} />
+        <img src={childAvatar} alt="Child Avatar" style={{ height: '100%', objectFit: 'contain' }} />
       </Box>
     }
-    {currentTurn == PARENT &&
+    {currentTurn === PARENT &&
       <Box height={avatarSize}>
-        <img src={parentAvatar} style={{ height: '100%', objectFit: 'contain' }} />
+        <img src={parentAvatar} alt="Parent Avatar" style={{ height: '100%', objectFit: 'contain' }} />
       </Box>
     }
-    {currentTurn != REVIEW &&
-      <Typography variant="h4">{currentTurn == CHILD ? childName : parentName}, it's your turn</Typography>
+    {currentTurn !== REVIEW &&
+      <Typography variant="h4">{currentTurn === CHILD ? childName : parentName}, it's your turn</Typography>
     }
     <Box mb={RESPONSIVE_PANEL_SPACING} />
   </>;
 
 const Title = ({ question, currentTurn, childAnswer, parentAnswer }) =>
   <>
-    {currentTurn != REVIEW &&
+    {currentTurn !== REVIEW &&
       <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h5">{question}</Typography></Box>
     }
-    {currentTurn == REVIEW && childAnswer == parentAnswer &&
+    {currentTurn === REVIEW && childAnswer === parentAnswer &&
       <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h5">Answers matched!</Typography></Box>
     }
-    {currentTurn == REVIEW && childAnswer != parentAnswer &&
+    {currentTurn === REVIEW && childAnswer !== parentAnswer &&
       <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h5">Uh Oh! Looks like you two don't agree</Typography></Box>
     }
   </>;
 
 const Subtitle = ({ currentTurn, childAnswer, parentAnswer }) =>
   <>
-    {currentTurn == REVIEW && childAnswer == parentAnswer &&
+    {currentTurn === REVIEW && childAnswer === parentAnswer &&
       <Box mb={RESPONSIVE_PANEL_SPACING}><Typography>Amazing! Your choices are the same!</Typography></Box>
     }
-    {currentTurn == REVIEW && childAnswer != parentAnswer &&
+    {currentTurn === REVIEW && childAnswer !== parentAnswer &&
       <Box mb={RESPONSIVE_PANEL_SPACING}><Typography>It's the perfect time to have a chat!</Typography></Box>
     }
   </>

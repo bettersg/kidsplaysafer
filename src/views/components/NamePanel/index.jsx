@@ -5,8 +5,6 @@ import Box from '@mui/material/Box';
 import ResponsivePanel, { RESPONSIVE_PANEL_SPACING } from "../ResponsivePanel";
 import PreviousNextButtons from "../PreviousNextButtons";
 
-const spacing = "40px";
-
 const NamePanel = ({ title, name, onChange, onPrevious, onNext }) =>
   <ResponsivePanel small>
     <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h4">{title}</Typography></Box>

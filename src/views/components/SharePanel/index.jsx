@@ -10,7 +10,7 @@ const { HOME } = ROUTE_NAMES;
 
 const SharePanel = () => {
   const navigate = useNavigate();
-  const navigateToHome = useCallback(() => navigate(HOME), [navigate, HOME]);
+  const navigateToHome = useCallback(() => navigate(HOME), [navigate]);
   return (
     <ResponsivePanel small>
       <Box mb={RESPONSIVE_PANEL_SPACING}>

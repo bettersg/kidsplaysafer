@@ -2,8 +2,6 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-const spacing = "40px";
-
 const PreviousNextButtons = ({ disabled, onPrevious, onNext }) =>
   <Box>
     {!!onPrevious && <Button

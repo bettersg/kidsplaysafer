@@ -18,10 +18,10 @@ const { HOME, ABOUT, RESOURCES, CONTACT } = ROUTE_NAMES;
 
 export default function ResponsiveMenu() {
   const navigate = useNavigate();
-  const navigateToHome = useCallback(() => navigate(HOME), [navigate, HOME]);
-  const navigateToAbout = useCallback(() => navigate(ABOUT), [navigate, ABOUT]);
-  const navigateToResources = useCallback(() => navigate(RESOURCES), [navigate, RESOURCES]);
-  const navigateToContact = useCallback(() => navigate(CONTACT), [navigate, CONTACT]);
+  const navigateToHome = useCallback(() => navigate(HOME), [navigate]);
+  const navigateToAbout = useCallback(() => navigate(ABOUT), [navigate]);
+  const navigateToResources = useCallback(() => navigate(RESOURCES), [navigate]);
+  const navigateToContact = useCallback(() => navigate(CONTACT), [navigate]);
   const [open, setOpen] = useState(false);
   const toggleDrawer = useCallback(() => setOpen((state) => !state), []);
   return (

@@ -12,7 +12,7 @@ const { START } = ROUTE_NAMES;
 
 const Home = () => {
   const navigate = useNavigate();
-  const navigateToGame = useCallback(() => navigate(START), [navigate, START]);
+  const navigateToGame = useCallback(() => navigate(START), [navigate]);
   return (
     <Layout>
       <Box sx={{ height: '100%' }}>

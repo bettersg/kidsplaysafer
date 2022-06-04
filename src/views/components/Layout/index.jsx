@@ -1,8 +1,5 @@
 import Box from '@mui/material/Box'
 import ResponsiveMenu from '../ResponsiveMenu';
-import ROUTE_NAMES from "../../../constants/routeNames";
-
-const { HOME, ABOUT, RESOURCES, CONTACT } = ROUTE_NAMES;
 
 const Layout = ({ children }) => {
   return (
