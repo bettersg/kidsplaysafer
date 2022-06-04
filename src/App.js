@@ -9,11 +9,6 @@ import Home from "./views/pages/Home";
 import Start from "./views/pages/Start";
 import About from "./views/pages/About";
 import Contact from "./views/pages/Contact";
-import AvatarSelection from "./views/pages/AvatarSelection";
-import Introduction from "./views/pages/Introduction";
-import Questions from "./views/pages/Questions";
-import PlayAgain from "./views/pages/PlayAgain";
-import MailerForm from "./views/pages/MailerForm";
 import Resources from "./views/pages/Resources";
 
 // Routes rework: TODO AVATAR_SELECTION, START, QUESTIONS, PLAY_AGAIN etc
@@ -25,11 +20,6 @@ const {
   START,
   ABOUT,
   CONTACT,
-  AVATAR_SELECTION,
-  INTRODUCTION,
-  QUESTIONS,
-  PLAY_AGAIN,
-  MAILER_FORM,
   RESOURCES,
 } = ROUTE_NAMES;
 
@@ -38,11 +28,6 @@ const ROUTES = [
   { path: START, element: <Start />, exact: true },
   { path: ABOUT, element: <About />, exact: true },
   { path: CONTACT, element: <Contact />, exact: true },
-  { path: AVATAR_SELECTION, element: <AvatarSelection />, exact: true },
-  { path: INTRODUCTION, element: <Introduction />, exact: true },
-  { path: QUESTIONS, element: <Questions />, exact: true },
-  { path: PLAY_AGAIN, element: <PlayAgain />, exact: true },
-  { path: MAILER_FORM, element: <MailerForm />, exact: true },
   { path: RESOURCES, element: <Resources />, exact: true },
 ];
 
