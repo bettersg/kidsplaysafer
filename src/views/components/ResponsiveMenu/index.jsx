@@ -30,7 +30,9 @@ export default function ResponsiveMenu() {
         display: { xs: 'none', md: 'flex' },
         padding: '27px 50px'
       }}>
-        <Box><Typography variant="h4" color='white'>LOGO</Typography></Box>
+        <Box sx={{ cursor: 'pointer' }} onClick={navigateToHome}>
+          <Typography variant="h4" color='white'>KPS</Typography>
+        </Box>
         <Box sx={{ flexGrow: 1 }}></Box>
         <Button onClick={navigateToHome}>Home</Button>
         <Button onClick={navigateToAbout}>About</Button>
@@ -43,7 +45,9 @@ export default function ResponsiveMenu() {
         display: { xs: 'flex', md: 'none' },
         padding: '16px'
       }}>
-        <Box alignSelf="center"><Typography variant="h4" color='white'>LOGO</Typography></Box>
+        <Box alignSelf="center" sx={{ cursor: 'pointer' }} onClick={navigateToHome}>
+          <Typography variant="h4" color='white'>KPS</Typography>
+        </Box>
         <Box sx={{ flexGrow: 1 }}></Box>
         <IconButton onClick={toggleDrawer} size="small" sx={{ ml: 2 }}>
           <MenuIcon sx={{ width: 32, height: 32 }} />
