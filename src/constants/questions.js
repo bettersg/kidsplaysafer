@@ -32,8 +32,8 @@ const QUESTIONS = [
     questionParent: "Your child's friend wants to see his / her house. What should he / she do?",
     answers: [
       "Tell mummy / daddy",
-      "Show my house to my friend",
-      "Don't show my house",
+      "Show the house to my friend",
+      "Don't show the house",
     ],
   },
   {
@@ -60,7 +60,7 @@ const QUESTIONS = [
     questionParent: "Your child saw something scary while playing the game. What should he / she do?",
     answers: [
       "Tell mummy / daddy",
-      "Tell my friends",
+      "Tell a friends",
       "Don't do anything / I don't know",
       "Continue playing the game",
     ],
@@ -70,9 +70,9 @@ const QUESTIONS = [
     questionParent: "Your child's friend asks for his / her photo. What should he / she do?",
     answers: [
       "Tell mummy / daddy",
-      "Give my photo",
-      "Don't give my photo",
-      "Ask for your friends photo first",
+      "Give the photo",
+      "Don't give the photo",
+      "Ask the friend for a photo first",
     ],
   },
 ];
