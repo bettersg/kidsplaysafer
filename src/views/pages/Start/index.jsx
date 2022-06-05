@@ -93,12 +93,13 @@ const Start = () => {
         }
         {step >= STEPS.QUESTIONS && step < STEPS.QUESTIONS + QUESTIONS.length &&
           <QuestionPanel
-            key={QUESTIONS[step - 6].question}
+            key={QUESTIONS[step - 6].questionChild}
             childName={childName}
             parentName={parentName}
             childAvatar={childAvatar}
             parentAvatar={parentAvatar}
-            question={QUESTIONS[step - 6].question}
+            questionChild={QUESTIONS[step - 6].questionChild}
+            questionParent={QUESTIONS[step - 6].questionParent}
             answers={QUESTIONS[step - 6].answers}
             currentQuestion={step - 6}
             totalQuestions={QUESTIONS.length}

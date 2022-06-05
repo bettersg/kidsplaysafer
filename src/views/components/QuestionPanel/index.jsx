@@ -14,7 +14,7 @@ const avatarSize = { xs: '75px', sm: '150px' };
 /*
   This component has internal steps for the child, parent, and review phase
 */
-const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, question, answers, onPrevious, onNext, currentQuestion, totalQuestions }) => {
+const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, questionChild, questionParent, answers, onPrevious, onNext, currentQuestion, totalQuestions }) => {
   const [currentTurn, setCurrentTurn] = useState(CHILD);
   const [childAnswer, setChildAnswer] = useState(null);
   const [parentAnswer, setParentAnswer] = useState(null);
@@ -44,7 +44,8 @@ const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, quest
       <ResponsivePanel>
         <Title
           currentTurn={currentTurn}
-          question={question}
+          questionChild={questionChild}
+          questionParent={questionParent}
           childAnswer={childAnswer}
           parentAnswer={parentAnswer}
         />
@@ -55,7 +56,7 @@ const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, quest
         />
         <Box mb={RESPONSIVE_PANEL_SPACING}>
           {answers.map((answer, index) => {
-            return <Box display="flex" alignItems="center" key={`${question}-answer-${index}`}>
+            return <Box display="flex" alignItems="center" key={`${questionChild}-answer-${index}`}>
               {currentTurn === REVIEW && childAnswer === answer &&
                 <img src={childAvatar} alt="Child Avatar" style={{ paddingBottom: '4px', width: '40px', height: '40px', objectFit: 'contain' }} />
               }
@@ -106,10 +107,13 @@ const Header = ({ currentTurn, currentQuestion, totalQuestions, childName, paren
     <Box mb={RESPONSIVE_PANEL_SPACING} />
   </>;
 
-const Title = ({ question, currentTurn, childAnswer, parentAnswer }) =>
+const Title = ({ questionChild, questionParent, currentTurn, childAnswer, parentAnswer }) =>
   <>
-    {currentTurn !== REVIEW &&
-      <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h5">{question}</Typography></Box>
+    {currentTurn === CHILD &&
+      <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h5">{questionChild}</Typography></Box>
+    }
+    {currentTurn === PARENT &&
+      <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h5">{questionParent}</Typography></Box>
     }
     {currentTurn === REVIEW && childAnswer === parentAnswer &&
       <Box mb={RESPONSIVE_PANEL_SPACING}><Typography variant="h5">Answers matched!</Typography></Box>
