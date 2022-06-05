@@ -50,8 +50,8 @@ const Home = () => {
             />
           </Box>
           <Box>
-            <Typography variant="h6" color="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
-            <Typography variant="h6" color="white">Massa egestas eleifend in nulla condimentum facilisi.</Typography>
+            <Typography variant="h6" color="white">Understand how your kids behave online.</Typography>
+            <Typography variant="h6" color="white">Discuss, educate, learn, there is no right or wrong answer.</Typography>
           </Box>
           <Box mt="32px">
             <Button onClick={navigateToGame} variant='contained' sx={{ fontSize: '24px', height: '48px', borderRadius: '30px' }}>
