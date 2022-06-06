@@ -22,7 +22,7 @@ const Home = () => {
       <Box sx={{ height: '100%' }}>
         <Box sx={{
           height: '100%',
-          padding: { xs: '0px 20px', sm: '0px 100px', md: '0px 200px' },
+          padding: { xs: '0px 20px 20px 20px', sm: '0px 100px', md: '0px 200px' },
           display: 'flex',
           flexDirection: "column",
           alignItems: "start",
@@ -91,13 +91,12 @@ const Home = () => {
                     height: '100%',
                     display: 'flex',
                     alignItems: 'center',
-                    background: 'rgba(39, 2, 69, 0.6)',
+                    background: 'rgba(255, 255, 255, 0.8)',
                   }}>
                   <img
                     src={BetterSG}
                     alt="Better.sg Logo"
                     width="100%"
-                    style={{ filter: 'brightness(0) invert(1)' }}
                   />
                 </Paper>
               </Grid>
