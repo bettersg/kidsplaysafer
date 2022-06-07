@@ -13,18 +13,18 @@ import AVATARS from "../../../constants/avatars";
 import QUESTIONS from "../../../constants/questions";
 
 const STEPS = {
-  CHILD_NAME: 0,
-  CHILD_AVATAR: 1,
-  PARENT_NAME: 2,
-  PARENT_AVATAR: 3,
-  ABOUT_PANEL: 4,
-  RULE_PANEL: 5,
+  ABOUT_PANEL: 0,
+  RULE_PANEL: 1,
+  CHILD_NAME: 2,
+  CHILD_AVATAR: 3,
+  PARENT_NAME: 4,
+  PARENT_AVATAR: 5,
   QUESTIONS: 6,
   SHARE_PANEL: 6 + QUESTIONS.length,
 }
 
 const Start = () => {
-  const [step, setStep] = useState(STEPS.CHILD_NAME);
+  const [step, setStep] = useState(STEPS.ABOUT_PANEL);
   const [childName, setChildName] = useState('');
   const [parentName, setParentName] = useState('');
   const [childAvatar, setChildAvatar] = useState('');
