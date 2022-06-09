@@ -6,6 +6,7 @@ import Nunito from '../fonts/Nunito-Regular.ttf';
 const orange = 'rgb(252, 174, 22)';
 
 const palette = {
+  mode: 'dark',
   primary: {
     main: 'rgb(252, 174, 22)',
   },
@@ -63,7 +64,6 @@ const components = {
         padding: '0px 32px',
         borderRadius: '15px',
         fontSize: '16px',
-        color: 'black',
         // '&:hover': {
         //   background: orange,
         // },
@@ -93,5 +93,5 @@ const components = {
   }
 };
 
-const muiTheme = responsiveFontSizes(createTheme({ palette, typography, components }));
-export default muiTheme;
+const kiddyTheme = responsiveFontSizes(createTheme({ palette, typography, components }));
+export default kiddyTheme;
