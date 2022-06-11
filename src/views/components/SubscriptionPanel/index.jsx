@@ -17,15 +17,6 @@ const mailchimpUrl = "https://better.us10.list-manage.com/subscribe/post?u=5c87c
 const emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 const isEmailValid = (email) => emailPattern.test(email);
 
-const Tmp = ({ subscribe, status, message ,handleSubscribe}) =>{ 
-  useEffect( () => {
-    if(status==="success" ) handleSubscribe(); 
-  },[status , handleSubscribe]);
-return(
-  <SubscriptionForm subscribe={subscribe} status={status} message={message}  />
-)}
-
-
 const SubscriptionPanel = ({onNext, onSubscribe}) => {
   const handleSubscribe = () =>{
     onSubscribe();
@@ -44,7 +35,8 @@ const SubscriptionPanel = ({onNext, onSubscribe}) => {
       <Box>
         <MailchimpSubscribe
           url={mailchimpUrl}
-          render={({ subscribe, status, message }) => <Tmp subscribe={subscribe} status={status}  message={message} handleSubscribe={handleSubscribe}  />
+          render={({ subscribe, status, message }) =>
+            <SubscriptionForm subscribe={subscribe} status={status} message={message} handleSubscribe={handleSubscribe}/>
           }
         />
       </Box>
@@ -59,10 +51,17 @@ const SubscriptionPanel = ({onNext, onSubscribe}) => {
   );
 }
 
-const SubscriptionForm = ({ subscribe, status, message }) => {
+const SubscriptionForm = ({ subscribe, status, message,handleSubscribe }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [throttled, setThrottled] = useState(false);
+  const [unthrottleTimeout, setUnthrottleTimeout] = useState(null);
+  useEffect(() => {
+    if (status === "success") handleSubscribe();
+    return () => {
+      if (unthrottleTimeout != null) clearTimeout(unthrottleTimeout);
+    };
+  }, [status, unthrottleTimeout,handleSubscribe]);
   const throttledSubscribe = useMemo(
     () => throttle(
       (formData) => console.log(subscribe(formData)),
@@ -80,7 +79,7 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
           FULLNAME: e.target.name.value,
         });
         setThrottled(true);
-        setTimeout(() => setThrottled(false), throttleTime);
+        setUnthrottleTimeout(setTimeout(() => setThrottled(false), throttleTime));
       }
     }, [throttledSubscribe]);
   return (
