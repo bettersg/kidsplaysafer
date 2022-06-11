@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from 'react'
-import { useNavigate } from "react-router-dom";
+
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,9 +8,14 @@ import TextField from '@mui/material/TextField';
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 import throttle from "lodash.throttle";
 import ResponsivePanel, { RESPONSIVE_PANEL_SPACING } from "../ResponsivePanel";
-import ROUTE_NAMES from "../../../constants/routeNames";
+import SharePage from '../SharePage';
 
-const { HOME } = ROUTE_NAMES;
+const STEPS = {
+  NOT_SUSCRIBE: 0,
+  SUSCRIBE: 1,
+  SKIP: 2,
+}
+
 
 const throttleTime = 2000;
 const mailchimpUrl = "https://better.us10.list-manage.com/subscribe/post?u=5c87c359df2b6af39788321f4&amp;id=f06bc771c8";
@@ -18,9 +23,15 @@ const mailchimpUrl = "https://better.us10.list-manage.com/subscribe/post?u=5c87c
 const emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 const isEmailValid = (email) => emailPattern.test(email);
 
-const SharePanel = () => {
+const SharePanel = ({isSubscribe}) => {
+  const [step, setStep] = useState(isSubscribe);
+  const nextStep = () =>{setStep((step) => step = 1)}
+  const skipToShare = () =>{setStep((step) => step = 2)}
   return (
     <ResponsivePanel small>
+      
+      {step === STEPS.NOT_SUSCRIBE &&
+      <>
       <Box mb={RESPONSIVE_PANEL_SPACING}>
         <Typography variant="h4">Thanks for playing! Well Done!</Typography>
       </Box>
@@ -30,11 +41,31 @@ const SharePanel = () => {
       <Box>
         <MailchimpSubscribe
           url={mailchimpUrl}
-          render={({ subscribe, status, message }) =>
-            <SubscriptionForm subscribe={subscribe} status={status} message={message} />
+          render={({ subscribe, status, message }) =>(
+            <div>
+            <SubscriptionForm subscribe={subscribe} status={status} message={message} isSubscribe={isSubscribe} />
+            {status === "success" && nextStep()}
+            {console.log(status,step)}
+
+            </div>
+          )
           }
         />
       </Box>
+      <Button
+        onClick={skipToShare}
+        variant='outlined'
+        sx={{ margin: '10px' }}
+      >
+        SKIP
+      </Button>
+      </>
+       }
+
+      {step === STEPS.SUSCRIBE && <SharePage subcribe={STEPS.SUSCRIBE}/>}
+      {step === STEPS.SKIP && <SharePage subcribe={STEPS.SKIP}/>}
+
+
     </ResponsivePanel>
   );
 }
@@ -43,8 +74,6 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [throttled, setThrottled] = useState(false);
-  const navigate = useNavigate();
-  const navigateToHome = useCallback(() => navigate(HOME), [navigate]);
   const throttledSubscribe = useMemo(
     () => throttle(
       subscribe,
@@ -98,13 +127,6 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
         onChange={(e) => setName(e.target.value)}
       />
       <Box mb={RESPONSIVE_PANEL_SPACING} />
-      <Button
-        onClick={navigateToHome}
-        variant='outlined'
-        sx={{ margin: '10px' }}
-      >
-        Return to home
-      </Button>
       <LoadingButton
         type="submit"
         variant="contained"
