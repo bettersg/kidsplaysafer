@@ -6,11 +6,12 @@ import AvatarPanel from "../../components/AvatarPanel";
 import AboutPanel from "../../components/AboutPanel";
 import QuestionPanel from "../../components/QuestionPanel";
 import RulePanel from "../../components/RulePanel";
-import SharePanel from "../../components/SharePanel";
+import SubscriptionPanel from "../../components/SubscriptionPanel";
 import BackgroundShapes from "../../assets/images/background_shapes.png";
 
 import AVATARS from "../../../constants/avatars";
 import QUESTIONS from "../../../constants/questions";
+import SharePanel from '../../components/SharePanel';
 
 const STEPS = {
   ABOUT_PANEL: 0,
@@ -21,16 +22,22 @@ const STEPS = {
   PARENT_AVATAR: 5,
   QUESTIONS: 6,
   SHARE_PANEL: 6 + QUESTIONS.length,
+  SHARE_PAGE: 6 + QUESTIONS.length +1,
 }
 
+
 const Start = () => {
-  const [step, setStep] = useState(STEPS.ABOUT_PANEL);
+  const [step, setStep] = useState(STEPS.SHARE_PANEL);
   const [childName, setChildName] = useState('');
   const [parentName, setParentName] = useState('');
   const [childAvatar, setChildAvatar] = useState('');
   const [parentAvatar, setParentAvatar] = useState('');
   const previousStep = useCallback(() => setStep((step) => step - 1), []);
   const nextStep = useCallback(() => setStep((step) => step + 1), []);
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const handleSubscribe = useCallback(() => {
+    setIsSubscribed(true);
+  }, []);
   return (
     <Layout>
       <Box
@@ -81,8 +88,7 @@ const Start = () => {
           />
         }
         {step === STEPS.ABOUT_PANEL &&
-          <AboutPanel
-            // onPrevious={previousStep} 
+          <AboutPanel 
             onNext={nextStep}
           />
         }
@@ -108,7 +114,11 @@ const Start = () => {
             onNext={nextStep} />
         }
         {step === STEPS.SHARE_PANEL &&
-          <SharePanel isSubscribe={0} />
+          <SubscriptionPanel onNext={nextStep} onSubscribe={handleSubscribe}/>
+        }
+
+        {step === STEPS.SHARE_PAGE &&
+          <SharePanel isSubscribed={isSubscribed} />
         }
       </Box>
     </Layout >
