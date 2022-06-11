@@ -27,7 +27,7 @@ const STEPS = {
 
 
 const Start = () => {
-  const [step, setStep] = useState(STEPS.SHARE_PANEL);
+  const [step, setStep] = useState(STEPS.ABOUT_PANEL);
   const [childName, setChildName] = useState('');
   const [parentName, setParentName] = useState('');
   const [childAvatar, setChildAvatar] = useState('');
