@@ -52,6 +52,7 @@ const Start = () => {
             name={childName}
             onChange={setChildName}
             onNext={() => !!childName && nextStep()}
+            onPrevious={previousStep} //added in so that player can move back to instruction page is they want
           />
         }
         {step === STEPS.CHILD_AVATAR &&
@@ -81,7 +82,7 @@ const Start = () => {
         }
         {step === STEPS.ABOUT_PANEL &&
           <AboutPanel
-            onPrevious={previousStep}
+            // onPrevious={previousStep} 
             onNext={nextStep}
           />
         }
@@ -107,7 +108,7 @@ const Start = () => {
             onNext={nextStep} />
         }
         {step === STEPS.SHARE_PANEL &&
-          <SharePanel />
+          <SharePanel isSubscribe={0} />
         }
       </Box>
     </Layout >
