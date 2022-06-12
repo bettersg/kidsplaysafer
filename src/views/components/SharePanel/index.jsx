@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useNavigate } from "react-router-dom";
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box';
@@ -43,8 +43,15 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [throttled, setThrottled] = useState(false);
+  const [unthrottleTimeout, setUnthrottleTimeout] = useState(null);
   const navigate = useNavigate();
   const navigateToHome = useCallback(() => navigate(HOME), [navigate]);
+  useEffect(() => {
+    if (status === "success") navigateToHome();
+    return () => {
+      if (unthrottleTimeout != null) clearTimeout(unthrottleTimeout);
+    };
+  }, [status, navigateToHome, unthrottleTimeout]);
   const throttledSubscribe = useMemo(
     () => throttle(
       subscribe,
@@ -62,7 +69,7 @@ const SubscriptionForm = ({ subscribe, status, message }) => {
           FULLNAME: e.target.name.value,
         });
         setThrottled(true);
-        setTimeout(() => setThrottled(false), throttleTime);
+        setUnthrottleTimeout(setTimeout(() => setThrottled(false), throttleTime));
       }
     }, [throttledSubscribe]);
   return (
