@@ -19,8 +19,10 @@ export const fisherYates = (array) => {
 
 const QUESTIONS = [
   {
-    questionChild: "Your friend asks for your phone number. What should you do?",
-    questionParent: "Your child's friend asks for his / her phone number. What should he / she do?",
+    questionChild:
+      "Your friend asks for your phone number. What should you do?",
+    questionParent:
+      "Your child's friend asks for his / her phone number. What should he / she do?",
     answers: [
       "Tell mummy / daddy",
       "Give the phone number",
@@ -29,7 +31,8 @@ const QUESTIONS = [
   },
   {
     questionChild: "Your friend wants to see your house. What should you do?",
-    questionParent: "Your child's friend wants to see his / her house. What should he / she do?",
+    questionParent:
+      "Your child's friend wants to see his / her house. What should he / she do?",
     answers: [
       "Tell mummy / daddy",
       "Show the house to my friend",
@@ -37,27 +40,28 @@ const QUESTIONS = [
     ],
   },
   {
-    questionChild: "Your friend asks you to play a different game. What should you do?",
-    questionParent: "Your child's friend asks him / her to play a different game. What should he / she do?",
+    questionChild:
+      "Your friend asks you to play a different game. What should you do?",
+    questionParent:
+      "Your child's friend asks him / her to play a different game. What should he / she do?",
     answers: [
       "Ask mummy / daddy if it is ok",
       "Play the new game",
-      "Don't play"
+      "Don't play",
     ],
   },
   {
     questionChild: "What will you do before you start playing a game?",
-    questionParent: "What should your child do before he / she starts playing a game?",
-    answers: [
-      "Tell mummy / daddy",
-      "Play the new game",
-      "Don't play"
-    ],
+    questionParent:
+      "What should your child do before he / she starts playing a game?",
+    answers: ["Tell mummy / daddy", "Play the new game", "Don't play"],
   },
 
   {
-    questionChild: "You saw something scary while playing the game. What should you do?",
-    questionParent: "Your child saw something scary while playing the game. What should he / she do?",
+    questionChild:
+      "You saw something scary while playing the game. What should you do?",
+    questionParent:
+      "Your child saw something scary while playing the game. What should he / she do?",
     answers: [
       "Tell mummy / daddy",
       "Tell a friends",
@@ -67,7 +71,8 @@ const QUESTIONS = [
   },
   {
     questionChild: "Your friend asks for your photo. What should you do?",
-    questionParent: "Your child's friend asks for his / her photo. What should he / she do?",
+    questionParent:
+      "Your child's friend asks for his / her photo. What should he / she do?",
     answers: [
       "Tell mummy / daddy",
       "Give the photo",
