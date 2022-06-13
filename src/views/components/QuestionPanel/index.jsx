@@ -84,7 +84,7 @@ const QuestionPanel = ({ childName, parentName, childAvatar, parentAvatar, quest
           onNext={nextTurn}
         />
       </ResponsivePanel >
-    </Box >
+    </Box>
   );
 }
 

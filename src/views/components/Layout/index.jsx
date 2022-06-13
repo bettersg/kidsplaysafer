@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
     }}>
       <ResponsiveMenu />
       <Box sx={{ flexGrow: 1 }}>{children}</Box>
-    </Box >);
+    </Box>);
 }
 
 export default Layout;
