@@ -1,10 +1,19 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ResponsivePanel, { RESPONSIVE_PANEL_SPACING } from "../ResponsivePanel";
-import PreviousNextButtons from "../PreviousNextButtons";
+import ResponsivePanel, { RESPONSIVE_PANEL_SPACING } from "../../components/ResponsivePanel";
+import Layout from "../../components/Layout";
+import Button from '@mui/material/Button'
+import ROUTE_NAMES from "../../../constants/routeNames";
+import { useNavigate } from "react-router-dom";
+import { useCallback } from 'react'
 
-const RulePanel = ({ onPrevious, onNext }) => (
+const { START,HOME } = ROUTE_NAMES;
+const Rules = () => {
+const navigate = useNavigate();
+const navigateToGame = useCallback(() => navigate(START), [navigate]);
+const navigateToHome = useCallback(() => navigate(HOME), [navigate]);
+   return( <Layout>
   <ResponsivePanel small>
     <Box mb={RESPONSIVE_PANEL_SPACING}>
       <Typography variant="h4">How To Play</Typography>
@@ -40,11 +49,19 @@ const RulePanel = ({ onPrevious, onNext }) => (
           instinctively approach you when in doubt.
         </Typography>
       </Box>
-
+      
       <Typography align="justify"></Typography>
+      <Button onClick={navigateToHome} variant='outlined' sx={{ marginRight:'30px',fontSize: '24px', height: '48px', borderRadius: '30px' }}>
+              Home
+            </Button>
+      <Button onClick={navigateToGame} variant='contained' sx={{ fontSize: '24px', height: '48px', borderRadius: '30px' }}>
+              Start
+            </Button>
     </Box>
-    <PreviousNextButtons onPrevious={onPrevious} onNext={onNext} />
-  </ResponsivePanel>
-);
 
-export default RulePanel;
+  </ResponsivePanel>
+  
+  </Layout>)
+};
+
+export default Rules;

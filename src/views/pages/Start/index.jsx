@@ -5,22 +5,19 @@ import NamePanel from "../../components/NamePanel";
 import AvatarPanel from "../../components/AvatarPanel";
 import AboutPanel from "../../components/AboutPanel";
 import QuestionPanel from "../../components/QuestionPanel";
-import RulePanel from "../../components/RulePanel";
 import SharePanel from "../../components/SharePanel";
 import BackgroundShapes from "../../assets/images/background_shapes.png";
-
 import AVATARS from "../../../constants/avatars";
 import QUESTIONS from "../../../constants/questions";
 
 const STEPS = {
   ABOUT_PANEL: 0,
-  RULE_PANEL: 1,
-  CHILD_NAME: 2,
-  CHILD_AVATAR: 3,
-  PARENT_NAME: 4,
-  PARENT_AVATAR: 5,
-  QUESTIONS: 6,
-  SHARE_PANEL: 6 + QUESTIONS.length,
+  CHILD_NAME: 1,
+  CHILD_AVATAR: 2,
+  PARENT_NAME: 3,
+  PARENT_AVATAR: 4,
+  QUESTIONS: 5,
+  SHARE_PANEL: 5 + QUESTIONS.length,
 }
 
 const Start = () => {
@@ -85,23 +82,18 @@ const Start = () => {
             onNext={nextStep}
           />
         }
-        {step === STEPS.RULE_PANEL &&
-          <RulePanel
-            onPrevious={previousStep}
-            onNext={nextStep}
-          />
-        }
+        
         {step >= STEPS.QUESTIONS && step < STEPS.QUESTIONS + QUESTIONS.length &&
           <QuestionPanel
-            key={QUESTIONS[step - 6].questionChild}
+            key={QUESTIONS[step - 5].questionChild}
             childName={childName}
             parentName={parentName}
             childAvatar={childAvatar}
             parentAvatar={parentAvatar}
-            questionChild={QUESTIONS[step - 6].questionChild}
-            questionParent={QUESTIONS[step - 6].questionParent}
-            answers={QUESTIONS[step - 6].answers}
-            currentQuestion={step - 6}
+            questionChild={QUESTIONS[step - 5].questionChild}
+            questionParent={QUESTIONS[step - 5].questionParent}
+            answers={QUESTIONS[step - 5].answers}
+            currentQuestion={step - 5}
             totalQuestions={QUESTIONS.length}
             onPrevious={previousStep}
             onNext={nextStep} />

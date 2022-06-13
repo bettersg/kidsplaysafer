@@ -12,11 +12,15 @@ import DigitalForLife from "../../assets/images/digitalForLife.png";
 import BetterSG from "../../assets/images/bettersg.png";
 import ROUTE_NAMES from "../../../constants/routeNames";
 
-const { START } = ROUTE_NAMES;
+
+const { START,RULES } = ROUTE_NAMES;
+
 
 const Home = () => {
   const navigate = useNavigate();
   const navigateToGame = useCallback(() => navigate(START), [navigate]);
+  const navigateToRules = useCallback(() => navigate(RULES), [navigate]);
+  
   return (
     <Layout>
       <Box sx={{ height: '100%' }}>
@@ -58,6 +62,9 @@ const Home = () => {
             <Typography variant="h6" color="white">Discuss, educate, learn, there is no right or wrong answer.</Typography>
           </Box>
           <Box mt="32px">
+          <Button onClick={navigateToRules} variant='outlined' sx={{ marginRight:'30px',fontSize: '24px', height: '48px', borderRadius: '30px' }}>
+              How to play
+            </Button>
             <Button onClick={navigateToGame} variant='contained' sx={{ fontSize: '24px', height: '48px', borderRadius: '30px' }}>
               Start
             </Button>

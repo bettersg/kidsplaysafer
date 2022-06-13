@@ -4,6 +4,7 @@ const ROUTE_NAMES = {
   ABOUT: "/about",
   CONTACT: "/contact",
   RESOURCES: "/resources",
+  RULES: "/rules",
 };
 
 export default ROUTE_NAMES;
