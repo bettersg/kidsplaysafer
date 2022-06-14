@@ -35,12 +35,19 @@
     "clean": "rm -rf build/",
     "test": "react-scripts test",
     "lint": "eslint 'src/**' --ext .js,.jsx",
+    "prettify": "prettier --write .",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "npx eslint --fix"
     ]
   },
   "browserslist": {
@@ -56,6 +63,8 @@
     ]
   },
   "devDependencies": {
-    "husky": "^8.0.1"
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.1",
+    "prettier": "2.6.2"
   }
 }

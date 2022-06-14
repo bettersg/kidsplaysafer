@@ -1,36 +1,36 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-import Nunito from '../fonts/Nunito-Regular.ttf';
-import Audiowide from '../fonts/Audiowide-Regular.ttf';
+import Nunito from "../fonts/Nunito-Regular.ttf";
+import Audiowide from "../fonts/Audiowide-Regular.ttf";
 
 const palette = {
-  mode: 'dark',
+  mode: "dark",
 };
 
 const typography = {
-  fontFamily: 'Nunito',
-  color: 'white',
+  fontFamily: "Nunito",
+  color: "white",
   h1: {
-    fontFamily: 'Audiowide',
-    color: 'white',
-    textShadow: '0em 0em 0.1em #cc00ff, 0em 0em 0.4em white'
+    fontFamily: "Audiowide",
+    color: "white",
+    textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h2: {
-    fontFamily: 'Audiowide',
-    color: 'white',
-    textShadow: '0em 0em 0.1em #cc00ff, 0em 0em 0.4em white'
+    fontFamily: "Audiowide",
+    color: "white",
+    textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h3: {
-    fontFamily: 'Audiowide',
-    color: 'white',
-    textShadow: '0em 0em 0.1em #cc00ff, 0em 0em 0.4em white'
+    fontFamily: "Audiowide",
+    color: "white",
+    textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h4: {
-    fontFamily: 'Audiowide',
-    color: 'white',
-    textShadow: '0em 0em 0.1em #cc00ff, 0em 0em 0.4em white'
+    fontFamily: "Audiowide",
+    color: "white",
+    textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
-  button: { fontFamily: 'Audiowide' },
+  button: { fontFamily: "Audiowide" },
 };
 
 const components = {
@@ -56,32 +56,34 @@ const components = {
   MuiButton: {
     styleOverrides: {
       root: {
-        height: '40px',
-        padding: '0px 32px',
-        borderRadius: '20px',
-        fontSize: '16px',
-        color: 'white',
+        height: "40px",
+        padding: "0px 32px",
+        borderRadius: "20px",
+        fontSize: "16px",
+        color: "white",
       },
       contained: {
-        boxShadow: '0px 4px 20px 5px rgba(255, 255, 255, 0.25)',
-        background: 'linear-gradient(180deg, #FB4EC2 0%, #FF8DAD 100%)',
-        '&:disabled': {
-          background: 'rgba(255, 255, 255, 0.12)',
+        boxShadow: "0px 4px 20px 5px rgba(255, 255, 255, 0.25)",
+        background: "linear-gradient(180deg, #FB4EC2 0%, #FF8DAD 100%)",
+        "&:disabled": {
+          background: "rgba(255, 255, 255, 0.12)",
         },
       },
       outlined: {
-        border: '2px solid #FFFFFF',
-      }
+        border: "2px solid #FFFFFF",
+      },
     },
   },
   MuiPaper: {
     styleOverrides: {
       root: {
-        background: 'rgba(39, 2, 69, 0.8)',
-      }
-    }
-  }
+        background: "rgba(39, 2, 69, 0.8)",
+      },
+    },
+  },
 };
 
-const muiTheme = responsiveFontSizes(createTheme({ palette, typography, components }));
+const muiTheme = responsiveFontSizes(
+  createTheme({ palette, typography, components })
+);
 export default muiTheme;
