@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import muiTheme from './theme';
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import muiTheme from "./theme";
 
 import ROUTE_NAMES from "./constants/routeNames";
 
@@ -15,13 +15,7 @@ import Resources from "./views/pages/Resources";
 // should probably not be routes (they're part of a journey, e.g. we never start
 // directly with AATAR_SELECTION without going through chosing a name),
 // we can replace them with a state, e.g. step, in the GAME route
-const {
-  HOME,
-  START,
-  ABOUT,
-  CONTACT,
-  RESOURCES,
-} = ROUTE_NAMES;
+const { HOME, START, ABOUT, CONTACT, RESOURCES } = ROUTE_NAMES;
 
 const ROUTES = [
   { path: HOME, element: <Home />, exact: true },
