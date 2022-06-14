@@ -1,5 +1,9 @@
 import { useState, useCallback } from 'react'
+import { collection } from 'firebase/firestore';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { db } from "../../../firebase";
 import Box from '@mui/material/Box'
+import CircularProgress from '@mui/material/CircularProgress';
 import Layout from "../../components/Layout";
 import NamePanel from "../../components/NamePanel";
 import AvatarPanel from "../../components/AvatarPanel";
@@ -10,7 +14,6 @@ import SubscriptionPanel from "../../components/SubscriptionPanel";
 import BackgroundShapes from "../../assets/images/background_shapes.png";
 
 import AVATARS from "../../../constants/avatars";
-import QUESTIONS from "../../../constants/questions";
 import SharePanel from '../../components/SharePanel';
 
 const STEPS = {
@@ -21,10 +24,9 @@ const STEPS = {
   PARENT_NAME: 4,
   PARENT_AVATAR: 5,
   QUESTIONS: 6,
-  SHARE_PANEL: 6 + QUESTIONS.length,
-  SHARE_PAGE: 6 + QUESTIONS.length +1,
+  SHARE_PANEL: 100,
+  SHARE_PAGE: 101,
 }
-
 
 const Start = () => {
   const [step, setStep] = useState(STEPS.ABOUT_PANEL);
@@ -33,7 +35,14 @@ const Start = () => {
   const [childAvatar, setChildAvatar] = useState('');
   const [parentAvatar, setParentAvatar] = useState('');
   const previousStep = useCallback(() => setStep((step) => step - 1), []);
-  const nextStep = useCallback(() => setStep((step) => step + 1), []);
+  const [level1QuestionsSnapshot, loading] = useCollection(
+    collection(db, "content/level1/questions"),
+  );
+  const nextStep = useCallback(() => setStep((step) => {
+    const lastQuestionIndex = STEPS.QUESTIONS + level1QuestionsSnapshot?.docs?.length - 1;
+    if (step === lastQuestionIndex) return STEPS.SHARE_PANEL;
+    else return step + 1;
+  }), [level1QuestionsSnapshot]);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const handleSubscribe = useCallback(() => {
     setIsSubscribed(true);
@@ -88,7 +97,7 @@ const Start = () => {
           />
         }
         {step === STEPS.ABOUT_PANEL &&
-          <AboutPanel 
+          <AboutPanel
             onNext={nextStep}
           />
         }
@@ -98,23 +107,25 @@ const Start = () => {
             onNext={nextStep}
           />
         }
-        {step >= STEPS.QUESTIONS && step < STEPS.QUESTIONS + QUESTIONS.length &&
-          <QuestionPanel
-            key={QUESTIONS[step - 6].questionChild}
-            childName={childName}
-            parentName={parentName}
-            childAvatar={childAvatar}
-            parentAvatar={parentAvatar}
-            questionChild={QUESTIONS[step - 6].questionChild}
-            questionParent={QUESTIONS[step - 6].questionParent}
-            answers={QUESTIONS[step - 6].answers}
-            currentQuestion={step - 6}
-            totalQuestions={QUESTIONS.length}
-            onPrevious={previousStep}
-            onNext={nextStep} />
+        {(step >= STEPS.QUESTIONS && step < STEPS.QUESTIONS + level1QuestionsSnapshot?.docs?.length) &&
+          (loading
+            ? <CircularProgress />
+            : <QuestionPanel
+              key={level1QuestionsSnapshot?.docs[step - 6].data().questionChild}
+              childName={childName}
+              parentName={parentName}
+              childAvatar={childAvatar}
+              parentAvatar={parentAvatar}
+              questionChild={level1QuestionsSnapshot?.docs[step - 6].data().questionChild}
+              questionParent={level1QuestionsSnapshot?.docs[step - 6].data().questionParent}
+              answers={level1QuestionsSnapshot?.docs[step - 6].data().answers}
+              currentQuestion={step - 6}
+              totalQuestions={level1QuestionsSnapshot?.docs?.length}
+              onPrevious={previousStep}
+              onNext={nextStep} />)
         }
         {step === STEPS.SHARE_PANEL &&
-          <SubscriptionPanel onNext={nextStep} onSubscribe={handleSubscribe}/>
+          <SubscriptionPanel onNext={nextStep} onSubscribe={handleSubscribe} />
         }
 
         {step === STEPS.SHARE_PAGE &&
