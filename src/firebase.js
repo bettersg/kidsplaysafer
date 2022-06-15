@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "kidsplaysafer.appspot.com",
   messagingSenderId: "240701503508",
   appId: "1:240701503508:web:8fbc2b66096bbac9b40f01",
-  measurementId: "G-KXY051ZPS5"
+  measurementId: "G-KXY051ZPS5",
 };
 
 // init firebase app

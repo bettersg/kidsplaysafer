@@ -1,39 +1,39 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-import Bangers from '../fonts/Bangers-Regular.ttf';
-import Nunito from '../fonts/Nunito-Regular.ttf';
+import Bangers from "../fonts/Bangers-Regular.ttf";
+import Nunito from "../fonts/Nunito-Regular.ttf";
 
-const orange = 'rgb(252, 174, 22)';
+const orange = "rgb(252, 174, 22)";
 
 const palette = {
-  mode: 'dark',
+  mode: "dark",
   primary: {
-    main: 'rgb(252, 174, 22)',
+    main: "rgb(252, 174, 22)",
   },
 };
 
 const typography = {
-  fontFamily: 'Nunito, Arial',
-  color: 'white',
+  fontFamily: "Nunito, Arial",
+  color: "white",
   h1: {
-    fontFamily: 'Bangers',
+    fontFamily: "Bangers",
     color: orange,
-    WebkitTextStroke: '0.5px white'
+    WebkitTextStroke: "0.5px white",
   },
   h2: {
-    fontFamily: 'Bangers',
+    fontFamily: "Bangers",
     color: orange,
-    WebkitTextStroke: '0.5px white'
+    WebkitTextStroke: "0.5px white",
   },
   h3: {
-    fontFamily: 'Bangers',
+    fontFamily: "Bangers",
     color: orange,
-    WebkitTextStroke: '0.5px white'
+    WebkitTextStroke: "0.5px white",
   },
   h4: {
-    fontFamily: 'Bangers',
+    fontFamily: "Bangers",
     color: orange,
-    WebkitTextStroke: '0.5px black'
+    WebkitTextStroke: "0.5px black",
   },
 };
 
@@ -60,38 +60,40 @@ const components = {
   MuiButton: {
     styleOverrides: {
       root: {
-        height: '40px',
-        padding: '0px 32px',
-        borderRadius: '15px',
-        fontSize: '16px',
+        height: "40px",
+        padding: "0px 32px",
+        borderRadius: "15px",
+        fontSize: "16px",
         // '&:hover': {
         //   background: orange,
         // },
       },
       contained: {
         // background: orange,
-        boxShadow: 'none',
-        '&:disabled': {
-          background: 'rgba(255, 255, 255, 0.12)',
+        boxShadow: "none",
+        "&:disabled": {
+          background: "rgba(255, 255, 255, 0.12)",
         },
       },
       outlined: {
-        border: 'none',
-        background: 'white',
-        '&:disabled': {
-          background: 'rgba(255, 255, 255, 0.12)',
+        border: "none",
+        background: "white",
+        "&:disabled": {
+          background: "rgba(255, 255, 255, 0.12)",
         },
-      }
+      },
     },
   },
   MuiPaper: {
     styleOverrides: {
       root: {
-        background: 'rgb(219, 36, 252)',
-      }
-    }
-  }
+        background: "rgb(219, 36, 252)",
+      },
+    },
+  },
 };
 
-const kiddyTheme = responsiveFontSizes(createTheme({ palette, typography, components }));
+const kiddyTheme = responsiveFontSizes(
+  createTheme({ palette, typography, components })
+);
 export default kiddyTheme;

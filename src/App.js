@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import { cyberTheme, kiddyTheme } from './theme';
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import { cyberTheme, kiddyTheme } from "./theme";
 import Layout from "./views/components/Layout";
 
 import ROUTE_NAMES from "./constants/routeNames";
@@ -14,10 +14,7 @@ import Start from "./views/pages/Start";
 // should probably not be routes (they're part of a journey, e.g. we never start
 // directly with AATAR_SELECTION without going through chosing a name),
 // we can replace them with a state, e.g. step, in the GAME route
-const {
-  HOME,
-  START,
-} = ROUTE_NAMES;
+const { HOME, START } = ROUTE_NAMES;
 
 const ROUTES = [
   { path: HOME, element: <Home />, exact: true },
@@ -25,10 +22,10 @@ const ROUTES = [
 ];
 
 const App = () => {
-  const [theme, setTheme] = useState('cyber');
+  const [theme, setTheme] = useState("cyber");
   return (
     <Router>
-      <ThemeProvider theme={theme === 'kiddy' ? kiddyTheme : cyberTheme}>
+      <ThemeProvider theme={theme === "kiddy" ? kiddyTheme : cyberTheme}>
         <CssBaseline />
         <Layout theme={theme} onThemeChange={setTheme}>
           <Routes>
@@ -37,7 +34,6 @@ const App = () => {
               return <Route {...route} key={key} />;
             })}
           </Routes>
-
         </Layout>
       </ThemeProvider>
     </Router>
