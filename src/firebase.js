@@ -1,6 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
+import { getPerformance } from "firebase/performance";
+import reportWebVitals from "./reportWebVitals";
+
+reportWebVitals(console.log);
 
 const firebaseConfig = {
   apiKey: "AIzaSyDbsp6PTkAViC_Gc7tEdfbmGaiuIfe6qeY",
@@ -17,6 +21,7 @@ const app = initializeApp(firebaseConfig);
 
 // init firebase services
 export const db = getFirestore(app);
-export const analytics = getAnalytics(app);
+export const perf = getPerformance(app);
+if (window.location.hostname !== "localhost") getAnalytics(app);
 
 export default app;
