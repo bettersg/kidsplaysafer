@@ -9,7 +9,6 @@ import NamePanel from "../../components/NamePanel";
 import AvatarPanel from "../../components/AvatarPanel";
 import AboutPanel from "../../components/AboutPanel";
 import QuestionPanel from "../../components/QuestionPanel";
-import RulePanel from "../../components/RulePanel";
 import SubscriptionPanel from "../../components/SubscriptionPanel";
 import BackgroundShapes from "../../assets/images/background_shapes.png";
 
@@ -18,12 +17,11 @@ import SharePanel from "../../components/SharePanel";
 
 const STEPS = {
   ABOUT_PANEL: 0,
-  RULE_PANEL: 1,
-  CHILD_NAME: 2,
-  CHILD_AVATAR: 3,
-  PARENT_NAME: 4,
-  PARENT_AVATAR: 5,
-  QUESTIONS: 6,
+  CHILD_NAME: 1,
+  CHILD_AVATAR: 2,
+  PARENT_NAME: 3,
+  PARENT_AVATAR: 4,
+  QUESTIONS: 5,
   SHARE_PANEL: 100,
   SHARE_PAGE: 101,
 };
@@ -103,28 +101,25 @@ const Start = () => {
           />
         )}
         {step === STEPS.ABOUT_PANEL && <AboutPanel onNext={nextStep} />}
-        {step === STEPS.RULE_PANEL && (
-          <RulePanel onPrevious={previousStep} onNext={nextStep} />
-        )}
         {step >= STEPS.QUESTIONS &&
           step < STEPS.QUESTIONS + level1QuestionsSnapshot?.docs?.length &&
           (loading ? (
             <CircularProgress />
           ) : (
             <QuestionPanel
-              key={level1QuestionsSnapshot?.docs[step - 6].data().questionChild}
+              key={level1QuestionsSnapshot?.docs[step - 5].data().questionChild}
               childName={childName}
               parentName={parentName}
               childAvatar={childAvatar}
               parentAvatar={parentAvatar}
               questionChild={
-                level1QuestionsSnapshot?.docs[step - 6].data().questionChild
+                level1QuestionsSnapshot?.docs[step - 5].data().questionChild
               }
               questionParent={
-                level1QuestionsSnapshot?.docs[step - 6].data().questionParent
+                level1QuestionsSnapshot?.docs[step - 5].data().questionParent
               }
-              answers={level1QuestionsSnapshot?.docs[step - 6].data().answers}
-              currentQuestion={step - 6}
+              answers={level1QuestionsSnapshot?.docs[step - 5].data().answers}
+              currentQuestion={step - 5}
               totalQuestions={level1QuestionsSnapshot?.docs?.length}
               onPrevious={previousStep}
               onNext={nextStep}

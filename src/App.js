@@ -10,12 +10,13 @@ import Start from "./views/pages/Start";
 import About from "./views/pages/About";
 import Contact from "./views/pages/Contact";
 import Resources from "./views/pages/Resources";
+import Rules from "./views/pages/Rules";
 
 // Routes rework: TODO AVATAR_SELECTION, START, QUESTIONS, PLAY_AGAIN etc
 // should probably not be routes (they're part of a journey, e.g. we never start
 // directly with AATAR_SELECTION without going through chosing a name),
 // we can replace them with a state, e.g. step, in the GAME route
-const { HOME, START, ABOUT, CONTACT, RESOURCES } = ROUTE_NAMES;
+const { HOME, START, ABOUT, CONTACT, RESOURCES,RULES } = ROUTE_NAMES;
 
 const ROUTES = [
   { path: HOME, element: <Home />, exact: true },
@@ -23,6 +24,7 @@ const ROUTES = [
   { path: ABOUT, element: <About />, exact: true },
   { path: CONTACT, element: <Contact />, exact: true },
   { path: RESOURCES, element: <Resources />, exact: true },
+  { path: RULES, element: <Rules />, exact: true },
 ];
 
 const App = () => {
