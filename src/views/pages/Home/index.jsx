@@ -57,7 +57,8 @@ const Home = () => {
           onClick={navigateToRules}
           variant="outlined"
           sx={{
-            marginRight: "30px",
+            mr: "32px",
+            mb: "32px",
             fontSize: "24px",
             height: "48px",
             borderRadius: "30px",
@@ -68,7 +69,13 @@ const Home = () => {
         <Button
           onClick={navigateToGame}
           variant="contained"
-          sx={{ fontSize: "24px", height: "48px", borderRadius: "30px" }}
+          sx={{
+            mr: "32px",
+            mb: "32px",
+            fontSize: "24px",
+            height: "48px",
+            borderRadius: "30px",
+          }}
         >
           Start
         </Button>
