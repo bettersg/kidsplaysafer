@@ -59,23 +59,17 @@ const Rules = () => {
               they will instinctively approach you when in doubt.
             </Typography>
           </Box>
-          <Typography align="justify"></Typography>
           <Button
             onClick={navigateToHome}
             variant="outlined"
-            sx={{
-              marginRight: "30px",
-              fontSize: "24px",
-              height: "48px",
-              borderRadius: "30px",
-            }}
+            sx={{ margin: "10px" }}
           >
             Home
           </Button>
           <Button
             onClick={navigateToGame}
             variant="contained"
-            sx={{ fontSize: "24px", height: "48px", borderRadius: "30px" }}
+            sx={{ margin: "10px" }}
           >
             Start
           </Button>
