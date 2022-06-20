@@ -26,7 +26,8 @@ const SubscriptionPanel = ({ onNext, onSubscribe }) => {
   return (
     <ResponsivePanel small>
       <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography variant="h4">Thanks for playing! Well Done!</Typography>
+        <Typography variant="h4">Thanks for playing!</Typography>
+        <Typography variant="h4">Well Done!</Typography>
       </Box>
       <Box mb={RESPONSIVE_PANEL_SPACING}>
         <Typography>
@@ -94,16 +95,6 @@ const SubscriptionForm = ({
   );
   return (
     <Box component="form" onSubmit={submitHandler}>
-      <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography
-          variant="h4"
-          sx={{ color: status === "success" ? "#FF8DAD" : "white" }}
-        >
-          {status === "success"
-            ? "You are now subscribed!"
-            : "Subscribe to our newletter!"}
-        </Typography>
-      </Box>
       <TextField
         autoFocus
         required
