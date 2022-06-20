@@ -6,13 +6,14 @@ import Nunito from "../fonts/Nunito-Regular.ttf";
 const orange = "rgb(252, 174, 22)";
 
 const palette = {
+  mode: "dark",
   primary: {
     main: "rgb(252, 174, 22)",
   },
 };
 
 const typography = {
-  fontFamily: "Nunito, Arial",
+  fontFamily: "Arial",
   color: "white",
   h1: {
     fontFamily: "Bangers",
@@ -62,22 +63,24 @@ const components = {
         height: "40px",
         padding: "0px 32px",
         borderRadius: "15px",
-        fontSize: "16px",
-        color: "black",
-        // '&:hover': {
-        //   background: orange,
-        // },
+        fontSize: "18pt",
+        fontWeight: "700",
+        textTransform: "none",
       },
       contained: {
-        // background: orange,
         boxShadow: "none",
         "&:disabled": {
           background: "rgba(255, 255, 255, 0.12)",
         },
       },
       outlined: {
-        border: "none",
+        color: "black",
         background: "white",
+        borderColor: "black",
+        "&:hover": {
+          borderColor: "black",
+          backgroundColor: "white",
+        },
         "&:disabled": {
           background: "rgba(255, 255, 255, 0.12)",
         },
@@ -93,7 +96,7 @@ const components = {
   },
 };
 
-const muiTheme = responsiveFontSizes(
+const kiddyTheme = responsiveFontSizes(
   createTheme({ palette, typography, components })
 );
-export default muiTheme;
+export default kiddyTheme;

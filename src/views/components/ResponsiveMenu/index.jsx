@@ -2,6 +2,8 @@ import { useState, useCallback } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import ToggleButton from "@mui/material/ToggleButton";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -16,7 +18,7 @@ import ROUTE_NAMES from "../../../constants/routeNames";
 
 const { HOME, ABOUT, RESOURCES, CONTACT } = ROUTE_NAMES;
 
-export default function ResponsiveMenu() {
+const ResponsiveMenu = ({ theme, onThemeChange }) => {
   const navigate = useNavigate();
   const navigateToHome = useCallback(() => navigate(HOME), [navigate]);
   const navigateToAbout = useCallback(() => navigate(ABOUT), [navigate]);
@@ -27,6 +29,10 @@ export default function ResponsiveMenu() {
   const navigateToContact = useCallback(() => navigate(CONTACT), [navigate]);
   const [open, setOpen] = useState(false);
   const toggleDrawer = useCallback(() => setOpen((state) => !state), []);
+  const handleChangeTheme = useCallback(
+    (_, theme) => onThemeChange(theme),
+    [onThemeChange]
+  );
   return (
     <>
       <Box
@@ -42,13 +48,28 @@ export default function ResponsiveMenu() {
         </Box>
         <Box sx={{ flexGrow: 1 }}></Box>
         <Button onClick={navigateToHome}>Home</Button>
-        <Button onClick={navigateToAbout}>About</Button>
-        <Button disabled>Blog</Button>
-        <Button onClick={navigateToResources}>Resources</Button>
-        <Button onClick={navigateToContact}>Contact</Button>
-        <Button variant="outlined" disabled>
-          Login
+        <Button disabled onClick={navigateToAbout}>
+          About
         </Button>
+        <Button disabled onClick={navigateToResources}>
+          Resources
+        </Button>
+        <Button disabled onClick={navigateToContact}>
+          Contact
+        </Button>
+        <ToggleButtonGroup
+          color="primary"
+          value={theme}
+          exclusive
+          onChange={handleChangeTheme}
+        >
+          <ToggleButton value="kiddy" size="small">
+            Kiddy
+          </ToggleButton>
+          <ToggleButton value="cyber" size="small">
+            Cyber
+          </ToggleButton>
+        </ToggleButtonGroup>
       </Box>
       <Box
         sx={{
@@ -123,20 +144,26 @@ export default function ResponsiveMenu() {
               </ListItem>
             </List>
             <Divider />
-            <List>
-              <ListItem>
-                <ListItemButton disabled>
-                  <ListItemText
-                    primaryTypographyProps={{ variant: "h4" }}
-                    sx={{ textAlign: "right" }}
-                    primary="Login"
-                  />
-                </ListItemButton>
-              </ListItem>
-            </List>
+            <Box p="30px" textAlign="right">
+              <ToggleButtonGroup
+                color="primary"
+                value={theme}
+                exclusive
+                onChange={handleChangeTheme}
+              >
+                <ToggleButton value="kiddy" size="small">
+                  Kiddy
+                </ToggleButton>
+                <ToggleButton value="cyber" size="small">
+                  Cyber
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </Box>
           </Box>
         </Drawer>
       </Box>
     </>
   );
-}
+};
+
+export default ResponsiveMenu;

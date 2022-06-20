@@ -44,18 +44,22 @@ const SubscriptionPanel = ({ onNext, onSubscribe }) => {
               status={status}
               message={message}
               handleSubscribe={handleSubscribe}
+              onNext={onNext}
             />
           )}
         />
       </Box>
-      <Button onClick={onNext} variant="outlined" sx={{ margin: "10px" }}>
-        SKIP
-      </Button>
     </ResponsivePanel>
   );
 };
 
-const SubscriptionForm = ({ subscribe, status, message, handleSubscribe }) => {
+const SubscriptionForm = ({
+  subscribe,
+  status,
+  message,
+  handleSubscribe,
+  onNext,
+}) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [throttled, setThrottled] = useState(false);
@@ -68,7 +72,7 @@ const SubscriptionForm = ({ subscribe, status, message, handleSubscribe }) => {
   }, [status, unthrottleTimeout, handleSubscribe]);
   const throttledSubscribe = useMemo(
     () =>
-      throttle((formData) => console.log(subscribe(formData)), throttleTime, {
+      throttle(subscribe, throttleTime, {
         trailing: false,
       }),
     [subscribe]
@@ -114,6 +118,9 @@ const SubscriptionForm = ({ subscribe, status, message, handleSubscribe }) => {
         onChange={(e) => setName(e.target.value)}
       />
       <Box mb={RESPONSIVE_PANEL_SPACING} />
+      <Button onClick={onNext} variant="outlined" sx={{ margin: "10px" }}>
+        SKIP
+      </Button>
       <LoadingButton
         type="submit"
         variant="contained"
