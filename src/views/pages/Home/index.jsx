@@ -10,115 +10,118 @@ import DigitalForLife from "../../assets/images/digitalForLife.png";
 import BetterSG from "../../assets/images/bettersg.png";
 import ROUTE_NAMES from "../../../constants/routeNames";
 
-const { START } = ROUTE_NAMES;
+const { START, RULES } = ROUTE_NAMES;
 
 const Home = () => {
   const navigate = useNavigate();
   const navigateToGame = useCallback(() => navigate(START), [navigate]);
+  const navigateToRules = useCallback(() => navigate(RULES), [navigate]);
   return (
-    <Box sx={{ height: "100%" }}>
+    <Box
+      sx={{
+        height: "100%",
+        padding: {
+          xs: "0px 20px 20px 20px",
+          sm: "0px 100px",
+          md: "0px 200px",
+        },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "start",
+        justifyContent: "center",
+      }}
+    >
+      <Box ml="-40px" mb="-60px" sx={{ display: { xs: "none", md: "block" } }}>
+        <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="650" />
+      </Box>
       <Box
-        sx={{
-          height: "100%",
-          padding: {
-            xs: "0px 20px 20px 20px",
-            sm: "0px 100px",
-            md: "0px 200px",
-          },
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "start",
-          justifyContent: "center",
-        }}
+        ml="-30px"
+        mb="-45px"
+        sx={{ display: { xs: "none", sm: "block", md: "none" } }}
       >
-        <Box
-          ml="-40px"
-          mb="-60px"
-          sx={{ display: { xs: "none", md: "block" } }}
+        <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="460" />
+      </Box>
+      <Box ml="-20px" mb="-30px" sx={{ display: { xs: "block", sm: "none" } }}>
+        <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="325" />
+      </Box>
+      <Box>
+        <Typography variant="h6" color="white">
+          Understand how your kids behave online.
+        </Typography>
+        <Typography variant="h6" color="white">
+          Discuss, educate, learn, there is no right or wrong answer.
+        </Typography>
+      </Box>
+      <Box mt="32px">
+        <Button
+          onClick={navigateToRules}
+          variant="outlined"
+          sx={{
+            marginRight: "30px",
+            fontSize: "24px",
+            height: "48px",
+            borderRadius: "30px",
+          }}
         >
-          <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="650" />
-        </Box>
-        <Box
-          ml="-30px"
-          mb="-45px"
-          sx={{ display: { xs: "none", sm: "block", md: "none" } }}
+          How to play
+        </Button>
+        <Button
+          onClick={navigateToGame}
+          variant="contained"
+          sx={{ fontSize: "24px", height: "48px", borderRadius: "30px" }}
         >
-          <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="460" />
-        </Box>
-        <Box
-          ml="-20px"
-          mb="-30px"
-          sx={{ display: { xs: "block", sm: "none" } }}
-        >
-          <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="325" />
-        </Box>
-        <Box>
-          <Typography variant="h6" color="white">
-            Understand how your kids behave online.
-          </Typography>
-          <Typography variant="h6" color="white">
-            Discuss, educate, learn, there is no right or wrong answer.
-          </Typography>
-        </Box>
-        <Box mt="32px">
-          <Button
-            onClick={navigateToGame}
-            variant="contained"
-            sx={{ fontSize: "24px", height: "48px", borderRadius: "30px" }}
-          >
-            Start
-          </Button>
-        </Box>
-        <Box
-          mt="80px"
-          paddingRight={{ xs: "60px", sm: "0px" }}
-          width={{ xs: "100%", sm: "70%", md: "600px" }}
-        >
-          <Grid container spacing={2} alignItems="stretch">
-            <Grid item xs={12} sm={4} md={4}>
-              <a
-                href="https://www.digitalforlife.gov.sg/"
-                target="_blank"
-                rel="noreferrer"
+          Start
+        </Button>
+      </Box>
+      <Box
+        mt="80px"
+        paddingRight={{ xs: "60px", sm: "0px" }}
+        width={{ xs: "100%", sm: "70%", md: "600px" }}
+      >
+        <Grid container spacing={2} alignItems="stretch">
+          <Grid item xs={12} sm={4} md={4}>
+            <a
+              href="https://www.digitalforlife.gov.sg/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Paper
+                elevation={0}
+                sx={{
+                  padding: "4px",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  background: "rgba(39, 2, 69, 0.6)",
+                }}
               >
-                <Paper
-                  elevation={0}
-                  sx={{
-                    padding: "4px",
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    background: "rgba(39, 2, 69, 0.6)",
-                  }}
-                >
-                  <img
-                    src={DigitalForLife}
-                    alt="Digital For Life Logo"
-                    width="100%"
-                  />
-                </Paper>
-              </a>
-            </Grid>
-            <Grid item xs={12} sm={4} md={4}>
-              <a href="https://better.sg/" target="_blank" rel="noreferrer">
-                <Paper
-                  elevation={0}
-                  sx={{
-                    padding: "4px",
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    background: "rgba(255, 255, 255, 0.8)",
-                  }}
-                >
-                  <img src={BetterSG} alt="Better.sg Logo" width="100%" />
-                </Paper>
-              </a>
-            </Grid>
+                <img
+                  src={DigitalForLife}
+                  alt="Digital For Life Logo"
+                  width="100%"
+                />
+              </Paper>
+            </a>
           </Grid>
-        </Box>
+          <Grid item xs={12} sm={4} md={4}>
+            <a href="https://better.sg/" target="_blank" rel="noreferrer">
+              <Paper
+                elevation={0}
+                sx={{
+                  padding: "4px",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  background: "rgba(255, 255, 255, 0.8)",
+                }}
+              >
+                <img src={BetterSG} alt="Better.sg Logo" width="100%" />
+              </Paper>
+            </a>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );
