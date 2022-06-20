@@ -16,7 +16,7 @@ import Rules from "./views/pages/Rules";
 // should probably not be routes (they're part of a journey, e.g. we never start
 // directly with AATAR_SELECTION without going through chosing a name),
 // we can replace them with a state, e.g. step, in the GAME route
-const { HOME, START, ABOUT, CONTACT, RESOURCES,RULES } = ROUTE_NAMES;
+const { HOME, START, ABOUT, CONTACT, RESOURCES, RULES } = ROUTE_NAMES;
 
 const ROUTES = [
   { path: HOME, element: <Home />, exact: true },
