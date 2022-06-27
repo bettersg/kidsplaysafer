@@ -44,25 +44,20 @@ const QuestionPanel = ({
   };
   return (
     <Box textAlign="center">
-      <Header
-        currentTurn={currentTurn}
-        currentQuestion={currentQuestion}
-        totalQuestions={totalQuestions}
-        childName={childName}
-        parentName={parentName}
-        childAvatar={childAvatar}
-        parentAvatar={parentAvatar}
-      />
       <ResponsivePanel>
+        <Header
+          currentTurn={currentTurn}
+          currentQuestion={currentQuestion}
+          totalQuestions={totalQuestions}
+          childName={childName}
+          parentName={parentName}
+          childAvatar={childAvatar}
+          parentAvatar={parentAvatar}
+        />
         <Title
           currentTurn={currentTurn}
           questionChild={questionChild}
           questionParent={questionParent}
-          childAnswer={childAnswer}
-          parentAnswer={parentAnswer}
-        />
-        <Subtitle
-          currentTurn={currentTurn}
           childAnswer={childAnswer}
           parentAnswer={parentAnswer}
         />
@@ -193,7 +188,9 @@ const Title = ({
     )}
     {currentTurn === REVIEW && childAnswer === parentAnswer && (
       <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography variant="h5">Answers matched!</Typography>
+        <Typography variant="h5">
+          Amazing! Your choices are the same!
+        </Typography>
       </Box>
     )}
     {currentTurn === REVIEW && childAnswer !== parentAnswer && (
@@ -201,21 +198,9 @@ const Title = ({
         <Typography variant="h5">
           Uh Oh! Looks like you two don't agree
         </Typography>
-      </Box>
-    )}
-  </>
-);
-
-const Subtitle = ({ currentTurn, childAnswer, parentAnswer }) => (
-  <>
-    {currentTurn === REVIEW && childAnswer === parentAnswer && (
-      <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography>Amazing! Your choices are the same!</Typography>
-      </Box>
-    )}
-    {currentTurn === REVIEW && childAnswer !== parentAnswer && (
-      <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography>It's the perfect time to have a chat!</Typography>
+        <Typography variant="h5">
+          It's the perfect time to have a chat!
+        </Typography>
       </Box>
     )}
   </>
