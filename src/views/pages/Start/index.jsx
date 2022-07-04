@@ -2,7 +2,6 @@ import { useState, useCallback } from "react";
 import { collection } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../../../firebase";
-import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import NamePanel from "../../components/NamePanel";
 import AvatarPanel from "../../components/AvatarPanel";
@@ -49,16 +48,8 @@ const Start = () => {
     setIsSubscribed(true);
   }, []);
   return (
-    <Box
-      sx={{
-        padding: { xs: "0px 8px", sm: "0px 16px", md: "0px 24px" },
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <>
+      {step === STEPS.ABOUT_PANEL && <AboutPanel onNext={nextStep} />}
       {step === STEPS.CHILD_NAME && (
         <NamePanel
           title="Hi, little one,"
@@ -70,7 +61,7 @@ const Start = () => {
       )}
       {step === STEPS.CHILD_AVATAR && (
         <AvatarPanel
-          step={step}
+          title="Hi, little one,"
           avatars={AVATARS.children}
           onPrevious={previousStep}
           onSelect={(avatar) => setChildAvatar(avatar) || nextStep()}
@@ -87,13 +78,12 @@ const Start = () => {
       )}
       {step === STEPS.PARENT_AVATAR && (
         <AvatarPanel
-          step={step}
+          title="Dear parent,"
           avatars={AVATARS.parents}
           onPrevious={previousStep}
           onSelect={(avatar) => setParentAvatar(avatar) || nextStep()}
         />
       )}
-      {step === STEPS.ABOUT_PANEL && <AboutPanel onNext={nextStep} />}
       {step >= STEPS.QUESTIONS &&
         step < STEPS.QUESTIONS + level1QuestionsSnapshot?.docs?.length &&
         (loading ? (
@@ -130,7 +120,7 @@ const Start = () => {
         <SubscriptionPanel onNext={nextStep} onSubscribe={handleSubscribe} />
       )}
       {step === STEPS.SHARE_PAGE && <SharePanel isSubscribed={isSubscribed} />}
-    </Box>
+    </>
   );
 };
 
