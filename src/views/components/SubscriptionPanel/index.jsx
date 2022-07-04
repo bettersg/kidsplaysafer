@@ -30,7 +30,7 @@ const SubscriptionPanel = ({ onNext, onSubscribe }) => {
         <Typography variant="h4">Well Done!</Typography>
       </Box>
       <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography>
+        <Typography variant="h6">
           Sign up here if you want to receive alerts and be part of the
           community to build this tool.
         </Typography>
