@@ -1,48 +1,79 @@
-import * as React from "react";
-import Paper from "@mui/material/Paper";
+import { useState, useCallback, useMemo } from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { RESPONSIVE_PANEL_SPACING } from "../ResponsivePanel";
 import PreviousNextButtons from "../PreviousNextButtons";
+import Layout from "../Layout";
 
-const AvatarPanel = ({ step, avatars, onPrevious, onSelect }) => {
+const AvatarPanel = ({ title, avatars, onPrevious, onSelect }) => {
+  const [selectedIndex, setSelectedIndex] = useState(1);
+  const handleSlideChange = useCallback(
+    (e) => setSelectedIndex((e.item + 1) % avatars.length),
+    [avatars]
+  );
+  const handleNext = useCallback(
+    () => onSelect(avatars[selectedIndex]),
+    [avatars, selectedIndex]
+  );
+  const avatarComponents = useMemo(
+    () =>
+      avatars.map((avatar, i) => (
+        <img
+          src={avatar}
+          alt={`avatar-${i}`}
+          key={`avatar-${i}`}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            opacity: selectedIndex === i ? "100%" : "35%",
+          }}
+        />
+      )),
+    [avatars, selectedIndex]
+  );
   return (
-    <Box textAlign="center">
-      <Grid
-        container
-        spacing={{ xs: 1, sm: 2, md: 3 }}
-        sx={{ maxWidth: "1000px" }}
+    <Layout variant="dark_blue">
+      <Box
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "16px",
+        }}
       >
-        <Grid item xs={12}>
-          <Paper sx={{ padding: "24px" }}>
-            <Typography variant="h4">Select your avatar!</Typography>
-          </Paper>
-        </Grid>
-        {avatars.map((avatar, i) => (
-          <Grid item xs={6} md={4} key={`${step}-${i}`}>
-            <IconButton
-              onClick={() => onSelect(avatar)}
-              sx={{ padding: "0px" }}
-            >
-              <Paper sx={{ textAlign: "center", padding: "24px" }}>
-                <img
-                  src={avatar}
-                  alt={`child-${i}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                  }}
-                />
-              </Paper>
-            </IconButton>
-          </Grid>
-        ))}
-      </Grid>
-      <Box margin="10px" />
-      <PreviousNextButtons onPrevious={onPrevious} />
-    </Box>
+        <Box flexGrow={1} />
+        <Box sx={{ width: "170%" }}>
+          <AliceCarousel
+            activeIndex={(selectedIndex + 5) % avatars.length}
+            mouseTracking
+            infinite
+            responsive={{ 0: { items: 3 } }}
+            disableButtonsControls
+            disableDotsControls
+            controlsStrategy="alternate"
+            items={avatarComponents}
+            animationDuration={100}
+            onSlideChanged={handleSlideChange}
+          />
+        </Box>
+        <Box flexGrow={1} />
+        <Box mb={RESPONSIVE_PANEL_SPACING}>
+          <Typography variant="h5">{title}</Typography>
+        </Box>
+        <Box mb={RESPONSIVE_PANEL_SPACING} textAlign="center">
+          <Typography variant="h1">Choose</Typography>
+          <Typography variant="h1">your</Typography>
+          <Typography variant="h1">Avatar!</Typography>
+        </Box>
+        <Box flexGrow={1} />
+        <PreviousNextButtons onPrevious={onPrevious} onNext={handleNext} />
+        <Box flexGrow={1} />
+      </Box>
+    </Layout>
   );
 };
 

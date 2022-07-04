@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { cyberTheme, kiddyTheme } from "./theme";
-import Layout from "./views/components/Layout";
 
 import ROUTE_NAMES from "./constants/routeNames";
 
@@ -24,19 +23,17 @@ const ROUTES = [
 ];
 
 const App = () => {
-  const [theme, setTheme] = useState("cyber");
+  const [theme, setTheme] = useState("kiddy");
   return (
     <Router>
       <ThemeProvider theme={theme === "kiddy" ? kiddyTheme : cyberTheme}>
         <CssBaseline />
-        <Layout theme={theme} onThemeChange={setTheme}>
-          <Routes>
-            {ROUTES.map((route) => {
-              const key = route.path === "" ? "/home" : route.path;
-              return <Route {...route} key={key} />;
-            })}
-          </Routes>
-        </Layout>
+        <Routes>
+          {ROUTES.map((route) => {
+            const key = route.path === "" ? "/home" : route.path;
+            return <Route {...route} key={key} />;
+          })}
+        </Routes>
       </ThemeProvider>
     </Router>
   );

@@ -2,8 +2,9 @@ import { useState, useCallback } from "react";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import ResponsivePanel, { RESPONSIVE_PANEL_SPACING } from "../ResponsivePanel";
+import { RESPONSIVE_PANEL_SPACING } from "../ResponsivePanel";
 import PreviousNextButtons from "../PreviousNextButtons";
+import Layout from "../Layout";
 
 const maxNameLength = 24;
 
@@ -19,41 +20,59 @@ const NamePanel = ({ title, name, onChange, onPrevious, onNext }) => {
     [onChange]
   );
   return (
-    <ResponsivePanel small>
-      <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography variant="h4">{title}</Typography>
-      </Box>
-      <Box mb={RESPONSIVE_PANEL_SPACING}>
-        <Typography variant="h4">Enter your name!</Typography>
-      </Box>
+    <Layout variant="avatar">
       <Box
-        mb={RESPONSIVE_PANEL_SPACING}
-        component="form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          onNext();
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          padding: "16px",
         }}
       >
-        <TextField
-          autoFocus
-          margin="dense"
-          id="name"
-          label="Name"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={name}
-          onChange={onNameChange}
-          error={!!error}
-          helperText={!!error ? error : null}
+        <Box sx={{ height: "175px" }} />
+        <Box mb={RESPONSIVE_PANEL_SPACING}>
+          <Typography variant="h5">{title}</Typography>
+        </Box>
+        <Box mb={RESPONSIVE_PANEL_SPACING} textAlign="center">
+          <Typography variant="h1">Enter</Typography>
+          <Typography variant="h1">your</Typography>
+          <Typography variant="h1">name!</Typography>
+        </Box>
+        <Box sx={{ flexGrow: 1 }} />
+        <Box
+          mb={RESPONSIVE_PANEL_SPACING}
+          width="70%"
+          component="form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            onNext();
+          }}
+        >
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Enter your name"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={name}
+            onChange={onNameChange}
+            error={!!error}
+            helperText={!!error ? error : null}
+          />
+        </Box>
+        <Box height="20px" />
+        <PreviousNextButtons
+          disabled={!name}
+          onPrevious={onPrevious}
+          onNext={onNext}
         />
+        <Box height="40px" />
       </Box>
-      <PreviousNextButtons
-        disabled={!name}
-        onPrevious={onPrevious}
-        onNext={onNext}
-      />
-    </ResponsivePanel>
+    </Layout>
   );
 };
 
