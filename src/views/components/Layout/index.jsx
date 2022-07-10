@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import ResponsiveMenu from "../ResponsiveMenu";
-import BackgroundShapes from "../../assets/images/background_shapes.png";
+import BackgroundShapes from "../../assets/vectors/background.svg";
 
 const Layout = ({ children, theme, onThemeChange }) => {
   return (
@@ -8,10 +8,7 @@ const Layout = ({ children, theme, onThemeChange }) => {
       sx={{
         height: "100vh",
         width: "100vw",
-        background:
-          theme === "kiddy"
-            ? "linear-gradient(135deg, #A434B2, #325DDE, #4DA9E8)"
-            : "linear-gradient(180deg, #46357A 0%, #21012A 100%)",
+        background: "linear-gradient(180deg, #46357A 0%, #21012A 100%)",
       }}
     >
       <Box
@@ -20,11 +17,7 @@ const Layout = ({ children, theme, onThemeChange }) => {
           flexDirection: "column",
           height: "100vh",
           width: "100vw",
-          backgroundImage:
-            theme === "kiddy" ? null : `url(${BackgroundShapes})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "right bottom",
-          backgroundSize: "75vh",
+          backgroundImage: `url(${BackgroundShapes})`,
         }}
       >
         <ResponsiveMenu theme={theme} onThemeChange={onThemeChange} />
