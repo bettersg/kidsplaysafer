@@ -1,7 +1,6 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 import Nunito from "../fonts/Nunito-Regular.ttf";
-import Audiowide from "../fonts/Audiowide-Regular.ttf";
 
 const palette = {
   mode: "dark",
@@ -11,26 +10,21 @@ const typography = {
   fontFamily: "Nunito",
   color: "white",
   h1: {
-    fontFamily: "Audiowide",
     color: "white",
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h2: {
-    fontFamily: "Audiowide",
     color: "white",
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h3: {
-    fontFamily: "Audiowide",
     color: "white",
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h4: {
-    fontFamily: "Audiowide",
     color: "white",
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
-  button: { fontFamily: "Audiowide" },
 };
 
 const components = {
@@ -42,13 +36,6 @@ const components = {
         font-display: swap;
         font-weight: 400;
         src: local('Nunito'), local('Nunito-Regular'), url(${Nunito}) format('truetype');
-      }
-      @font-face {
-        font-family: 'Audiowide';
-        font-style: normal;
-        font-display: swap;
-        font-weight: 400;
-        src: local('Audiowide'), local('Audiowide-Regular'), url(${Audiowide}) format('truetype');
       }
     `,
   },
