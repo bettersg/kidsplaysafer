@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import { cyberTheme, kiddyTheme } from "./theme";
+import { cyberTheme } from "./theme";
 import Layout from "./views/components/Layout";
 
 import ROUTE_NAMES from "./constants/routeNames";
@@ -24,12 +23,11 @@ const ROUTES = [
 ];
 
 const App = () => {
-  const [theme, setTheme] = useState("cyber");
   return (
     <Router>
-      <ThemeProvider theme={theme === "kiddy" ? kiddyTheme : cyberTheme}>
+      <ThemeProvider theme={cyberTheme}>
         <CssBaseline />
-        <Layout theme={theme} onThemeChange={setTheme}>
+        <Layout>
           <Routes>
             {ROUTES.map((route) => {
               const key = route.path === "" ? "/home" : route.path;
