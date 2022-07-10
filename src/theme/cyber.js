@@ -10,20 +10,24 @@ const typography = {
   fontFamily: "Nunito",
   color: "white",
   h1: {
-    color: "white",
+    fontWeight: 900,
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h2: {
-    color: "white",
+    fontWeight: 900,
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h3: {
-    color: "white",
+    fontWeight: 900,
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
   },
   h4: {
-    color: "white",
+    fontWeight: 900,
     textShadow: "0em 0em 0.1em #cc00ff, 0em 0em 0.4em white",
+  },
+  button: {
+    fontWeight: 700,
+    fontSize: "16px",
   },
 };
 
@@ -46,7 +50,6 @@ const components = {
         height: "40px",
         padding: "0px 32px",
         borderRadius: "20px",
-        fontSize: "16px",
         color: "white",
       },
       contained: {
@@ -57,6 +60,7 @@ const components = {
         },
       },
       outlined: {
+        boxShadow: "0px 4px 20px 5px rgba(255, 255, 255, 0.25)",
         border: "2px solid #FFFFFF",
       },
     },
@@ -64,7 +68,10 @@ const components = {
   MuiPaper: {
     styleOverrides: {
       root: {
-        background: "rgba(39, 2, 69, 0.8)",
+        background: "#1E024A",
+        border: "8px solid #C2BAFF",
+        boxShadow: "0px 12px 0px #432490",
+        borderRadius: "35px",
       },
     },
   },

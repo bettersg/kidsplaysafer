@@ -80,56 +80,6 @@ const Home = () => {
           Start
         </Button>
       </Box>
-      <Box
-        mt="80px"
-        paddingRight={{ xs: "60px", sm: "0px" }}
-        width={{ xs: "100%", sm: "70%", md: "600px" }}
-      >
-        <Grid container spacing={2} alignItems="stretch">
-          <Grid item xs={12} sm={4} md={4}>
-            <a
-              href="https://www.digitalforlife.gov.sg/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Paper
-                elevation={0}
-                sx={{
-                  padding: "4px",
-                  width: "100%",
-                  height: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  background: "rgba(39, 2, 69, 0.6)",
-                }}
-              >
-                <img
-                  src={DigitalForLife}
-                  alt="Digital For Life Logo"
-                  width="100%"
-                />
-              </Paper>
-            </a>
-          </Grid>
-          <Grid item xs={12} sm={4} md={4}>
-            <a href="https://better.sg/" target="_blank" rel="noreferrer">
-              <Paper
-                elevation={0}
-                sx={{
-                  padding: "4px",
-                  width: "100%",
-                  height: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  background: "rgba(255, 255, 255, 0.8)",
-                }}
-              >
-                <img src={BetterSG} alt="Better.sg Logo" width="100%" />
-              </Paper>
-            </a>
-          </Grid>
-        </Grid>
-      </Box>
     </Box>
   );
 };
