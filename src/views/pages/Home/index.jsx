@@ -1,13 +1,9 @@
 import { useCallback } from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import KidsPlaySafer from "../../assets/vectors/kids_play_safer.svg";
-import DigitalForLife from "../../assets/images/digitalForLife.png";
-import BetterSG from "../../assets/images/bettersg.png";
 import ROUTE_NAMES from "../../../constants/routeNames";
 
 const { START, RULES } = ROUTE_NAMES;
