@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import ResponsiveMenu from "../ResponsiveMenu";
 import BackgroundShapes from "../../assets/vectors/background.svg";
 
-const Layout = ({ children, theme, onThemeChange }) => {
+const Layout = ({ children }) => {
   return (
     <Box
       sx={{
@@ -20,7 +20,7 @@ const Layout = ({ children, theme, onThemeChange }) => {
           backgroundImage: `url(${BackgroundShapes})`,
         }}
       >
-        <ResponsiveMenu theme={theme} onThemeChange={onThemeChange} />
+        <ResponsiveMenu />
         <Box sx={{ flexGrow: 1 }}>{children}</Box>
       </Box>
     </Box>
