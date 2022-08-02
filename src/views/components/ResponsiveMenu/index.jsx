@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 import { useNavigate } from "react-router-dom";
 import ROUTE_NAMES from "../../../constants/routeNames";
+import LogoNoText from "../../assets/vectors/logo_notext.svg";
 
 const { HOME } = ROUTE_NAMES;
 
@@ -44,9 +44,7 @@ const MobileMenu = ({ onClickLogo }) => (
 
 const Logo = ({ onClickLogo }) => (
   <Box alignSelf="center" sx={{ cursor: "pointer" }} onClick={onClickLogo}>
-    <Typography variant="h4" color="white">
-      KPS
-    </Typography>
+    <img src={LogoNoText} alt="Kids Play Safer Logo" width={64} height={64} />
   </Box>
 );
 
