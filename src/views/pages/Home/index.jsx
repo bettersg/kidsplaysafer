@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import KidsPlaySafer from "../../assets/vectors/kids_play_safer.svg";
 import ROUTE_NAMES from "../../../constants/routeNames";
 
 const { START, RULES } = ROUTE_NAMES;
@@ -27,18 +26,21 @@ const Home = () => {
         justifyContent: "center",
       }}
     >
-      <Box ml="-40px" mb="-60px" sx={{ display: { xs: "none", md: "block" } }}>
-        <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="650" />
+      <Box mb="8px" sx={{ display: { xs: "none", md: "block" } }}>
+        <Typography variant="h1">KIDS</Typography>
+        <Typography variant="h1">PLAYSAFER</Typography>
       </Box>
-      <Box
-        ml="-30px"
-        mb="-45px"
-        sx={{ display: { xs: "none", sm: "block", md: "none" } }}
-      >
-        <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="460" />
+      <Box mb="12px" sx={{ display: { xs: "none", sm: "block", md: "none" } }}>
+        <Typography variant="h1">KIDS</Typography>
+        <Typography variant="h1">PLAYSAFER</Typography>
       </Box>
-      <Box ml="-20px" mb="-30px" sx={{ display: { xs: "block", sm: "none" } }}>
-        <img src={KidsPlaySafer} alt="Kids Play Safer Text" width="325" />
+      <Box mb="24px" sx={{ display: { xs: "block", sm: "none" } }}>
+        <Typography variant="h1" sx={{ fontSize: "2.9rem" }}>
+          KIDS
+        </Typography>
+        <Typography variant="h1" sx={{ fontSize: "2.9rem" }}>
+          PLAYSAFER
+        </Typography>
       </Box>
       <Box>
         <Typography variant="h6" color="white">
