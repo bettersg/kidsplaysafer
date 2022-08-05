@@ -1,8 +1,9 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-import Nunito from "../fonts/Nunito-Regular.ttf";
+import Nunito_Regular from "../fonts/Nunito-Regular.ttf";
 import Audiowide from "../fonts/Audiowide-Regular.ttf";
-
+import Nunito_Bold from "../fonts/Nunito-Black.ttf";
+import Nunito_Semi from "../fonts/Nunito-SemiBold.ttf";
 const palette = {
   mode: "dark",
 };
@@ -40,7 +41,7 @@ const components = {
         font-style: normal;
         font-display: swap;
         font-weight: 400;
-        src: local('Nunito'), local('Nunito-Regular'), url(${Nunito}) format('truetype');
+        src: local('Nunito_Regular'), local('Nunito-Regular'), url(${Nunito_Regular}) format('truetype');
       }
       @font-face {
         font-family: 'Audiowide';
@@ -48,6 +49,21 @@ const components = {
         font-display: swap;
         font-weight: 400;
         src: local('Audiowide'), local('Audiowide-Regular'), url(${Audiowide}) format('truetype');
+      }
+      @font-face {
+        font-family: 'Nunito';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 600;
+        src: local('Nunito_Semi'), local('Nunito-SemiBold'), url(${Nunito_Semi}) format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Nunito';
+        font-style: normal;
+        font-display: swap;
+        font-weight: 900;
+        src: local('Nunito_Bold'), local('Nunito-Black'), url(${Nunito_Bold}) format('truetype');
       }
     `,
   },
@@ -59,6 +75,7 @@ const components = {
         padding: "0px 32px",
         borderRadius: "20px",
         color: "white",
+        fontWeight: 600,
       },
       contained: {
         boxShadow: "0px 4px 20px 5px rgba(255, 255, 255, 0.25)",
@@ -66,6 +83,7 @@ const components = {
         "&:disabled": {
           background: "rgba(255, 255, 255, 0.12)",
         },
+        color: "#1E024A",
       },
       outlined: {
         boxShadow: "0px 4px 20px 5px rgba(255, 255, 255, 0.25)",
