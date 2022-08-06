@@ -60,6 +60,7 @@ const Home = () => {
             fontSize: "24px",
             height: "48px",
             borderRadius: "30px",
+            fontWeight: 900,
           }}
         >
           How to play
@@ -73,6 +74,7 @@ const Home = () => {
             fontSize: "24px",
             height: "48px",
             borderRadius: "30px",
+            fontWeight:900,
           }}
         >
           Start
