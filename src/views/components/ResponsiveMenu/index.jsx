@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 
 import { useNavigate } from "react-router-dom";
 import ROUTE_NAMES from "../../../constants/routeNames";
-import LogoNoText from "../../assets/vectors/logo_notext.svg";
+import LogoNoText from "../../assets/vectors/logo_light_notext.svg";
 
 const { HOME } = ROUTE_NAMES;
 
