@@ -1,4 +1,4 @@
-name: Build and Deploy to Staging
+name: Build and Deploy to Production
 on:
   push:
     branches:
@@ -37,6 +37,6 @@ jobs:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting:production
+          args: deploy --only hosting:production,firestore:rules
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
